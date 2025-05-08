@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Blog by Rohit Kumar - Developer Portfolio" />
+  <title>Blog | Rohit Kumar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <h1>Rohit Kumar</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle dark/light theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </header>
+
+  <main>
+    <section id="blog" class="page-section">
+      <h2>Blog</h2>
+      <div class="blog-header">
+        <p>Thoughts, insights, and tutorials about web development, technology, and my journey as a developer.</p>
+        <div class="blog-search">
+          <input type="text" id="blog-search-input" placeholder="Search blog posts...">
+          <button id="blog-search-btn"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+      
+      <div class="blog-filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="javascript">JavaScript</button>
+        <button class="filter-btn" data-category="webdev">Web Development</button>
+        <button class="filter-btn" data-category="career">Career</button>
+      </div>
+      
+      <div id="blog-posts" class="blog-container">
+        <!-- Blog posts will be dynamically inserted here -->
+      </div>
+      
+      <div class="pagination">
+        <button id="load-more-btn" class="btn">Load More Posts</button>
+      </div>
+    </section>
+    
+    <!-- Blog post template (hidden) -->
+    <template id="blog-post-template">
+      <article class="blog-post">
+        <div class="blog-header">
+          <div class="blog-category"></div>
+        </div>
+        <div class="blog-content">
+          <h3 class="blog-title"></h3>
+          <span class="blog-date"></span>
+          <div class="blog-excerpt"></div>
+          <div class="blog-full-content"></div>
+          <button class="btn read-more">Read More</button>
+          <button class="btn read-less">Show Less</button>
+        </div>
+      </article>
+    </template>
+    
+    <!-- Individual blog post page (dynamically loaded) -->
+    <div id="blog-post-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modal-blog-content"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Rohit Kumar</h3>
+        <p>Full Stack Developer & Open Source Enthusiast</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <div class="social-links">
+          <a href="https://github.com/rohitkumar" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/rohitkumar" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/rohitkumar" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Rohit Kumar. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
