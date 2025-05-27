@@ -3,195 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rohit Kumar - Developer Portfolio" />
-  <title>Rohit Kumar | Portfolio</title>
+  <meta name="description" content="Rohit Kumar - Cybersecurity Analyst & Researcher Portfolio" />
+  <meta name="keywords" content="cybersecurity, penetration testing, security analyst, ethical hacking" />
+  <title>Rohit Kumar | Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-    <h1>Rohit Kumar</h1>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>Rohit Kumar</h1>
+        <span class="brand-subtitle">Cybersecurity Analyst</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
-    <button id="theme-toggle" aria-label="Toggle dark/light theme">
-      <i class="fas fa-moon"></i>
-    </button>
   </header>
 
-  <section id="hero">
-    <div class="hero-content">
-      <h2>Rohit Kumar</h2>
-      <p class="hero-subtitle">Cyber Security analyst & Researcher</p>
-      <p class="hero-description">I have build some powerful and useful tools specifically for cheapest machines.</p>
-      <div class="hero-buttons">
-        <a href="projects.html" class="btn">View Projects</a>
-        <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="my_img.jpg" alt="Dragons">
-    </div>
-  </section>
-
   <main>
-    <section id="featured-projects">
-      <h2>Featured Projects</h2>
-      <div class="featured-projects-grid">
-        <div class="featured-project">
-          <div class="project-image">
-            <img src="pentest.png" alt="E-Commerce Platform" />
-          </div>
-          <div class="project-content">
-            <h3>Automated web pentesting tool</h3>
-            <div class="project-tags">
-              <span class="tag">AI</span>
-              <span class="tag">Python</span>
-              <span class="tag">Linux</span>
-            </div>
-            <p>A full-featured automated web pentesting tool, AI based results scanning and future pentesting hints(Best bcz trained on a large dataset)</p>
-            <a href="projects.html" class="btn btn-small">View Details</a>
+    <section id="hero" class="hero-section">
+      <div class="hero-background">
+        <div class="cyber-grid"></div>
+        <div class="floating-particles"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2 class="hero-title">
+            <span class="title-line">Securing Digital</span>
+            <span class="title-line highlight">Frontiers</span>
+          </h2>
+          <p class="hero-subtitle">Cybersecurity Analyst & Researcher</p>
+          <p class="hero-description">
+            Passionate about identifying vulnerabilities, building secure systems, and developing 
+            powerful tools for cybersecurity professionals. Specialized in penetration testing, 
+            threat analysis, and creating innovative security solutions.
+          </p>
+          <div class="hero-buttons">
+            <a href="projects.html" class="btn btn-primary">
+              <i class="fas fa-shield-alt"></i>
+              View Security Projects
+            </a>
+            <a href="contact.html" class="btn btn-secondary">
+              <i class="fas fa-envelope"></i>
+              Get In Touch
+            </a>
           </div>
         </div>
-        
-        <div class="featured-project">
-          <div class="project-image">
-            <img src="hash_cracking.png" alt="Task Management System" />
-          </div>
-          <div class="project-content">
-            <h3>Dictionary based Hash cracking</h3>
-            <div class="project-tags">
-              <span class="tag">C Programming</span>
-              <span class="tag">OpenCL</span>
-              <span class="tag">Threading</span>
-              <span class="tag">RX570</span>
-              <span class="tag">MD5</span>
-              <span class="tag">SHA256</span>
-              <span class="tag">SHA512</span>
-            </div>
-            <p>Multiple hash cracking tool using opencl and AMD GPUs specifically</p>
-            <a href="projects.html" class="btn btn-small">View Details</a>
+        <div class="hero-image">
+          <div class="hero-avatar">
+            <img src="assets/profile-placeholder.svg" alt="Rohit Kumar - Cybersecurity Professional" />
+            <div class="avatar-ring"></div>
           </div>
         </div>
       </div>
-      <div class="section-cta">
-        <a href="projects.html" class="btn">View All Projects</a>
+      <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
       </div>
     </section>
-    
-    <section id="about-preview">
-      <h2>About Me</h2>
-      <div class="about-preview-content">
-        <div class="about-image">
-          <img src="my_img.jpg" alt="Rohit Kumar">
-        </div>
-        <div class="about-text">
-          <p>I'm a dedicated cybersecurity professional with a deep passion for securing systems, networks, and sensitive data. I thrive on identifying vulnerabilities, solving complex security challenges, and contributing to open-source security tools that strengthen the global digital landscape.</p>
-<p>With a strong foundation in threat analysis, risk assessment, and secure system design, I strive to build and maintain infrastructures that are not only robust and compliant but also resilient against modern cyber threats.</p>
-          <div class="skills-preview">
-            <h3>Key Skills</h3>
-            <div class="skills-tags">
-              <span class="tag">Network Security</span>
-              <span class="tag">Penetration Testing</span>
-              <span class="tag">SIEM (Splunk, QRadar)</span>
-              <span class="tag">Vulnerability Assessment</span>
+
+    <section id="featured-projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Featured Security Projects</h2>
+        <p class="section-subtitle">Cutting-edge tools and research in cybersecurity</p>
+        
+        <div class="projects-grid">
+          <article class="project-card featured">
+            <div class="project-image">
+              <img src="assets/project-pentest.svg" alt="Automated Penetration Testing Tool" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/st944452/PenTesting-Automation" target="_blank" class="project-link" aria-label="View source code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="projects.html" class="project-link" aria-label="View details">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
             </div>
-          <a href="about.html" class="btn">More About Me</a>
+            <div class="project-content">
+              <h3>Automated Penetration Testing Tool</h3>
+              <p>AI-powered web vulnerability scanner with machine learning-based result analysis and future attack vector predictions. Trained on extensive vulnerability datasets.</p>
+              <div class="project-tags">
+                <span class="tag">AI/ML</span>
+                <span class="tag">Python</span>
+                <span class="tag">Security</span>
+                <span class="tag">Linux</span>
+              </div>
+              <div class="project-stats">
+                <span class="stat">
+                  <i class="fas fa-star"></i>
+                  Advanced
+                </span>
+                <span class="stat">
+                  <i class="fas fa-code"></i>
+                  Open Source
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card featured">
+            <div class="project-image">
+              <img src="assets/project-hash.svg" alt="Hash Cracking Tool" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="#" target="_blank" class="project-link" aria-label="View source code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="projects.html" class="project-link" aria-label="View details">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>GPU-Accelerated Hash Cracker</h3>
+              <p>High-performance dictionary-based hash cracking tool utilizing OpenCL and AMD GPUs. Supports MD5, SHA256, SHA512 with optimized threading.</p>
+              <div class="project-tags">
+                <span class="tag">C Programming</span>
+                <span class="tag">OpenCL</span>
+                <span class="tag">GPU Computing</span>
+                <span class="tag">Cryptography</span>
+              </div>
+              <div class="project-stats">
+                <span class="stat">
+                  <i class="fas fa-bolt"></i>
+                  High Performance
+                </span>
+                <span class="stat">
+                  <i class="fas fa-microchip"></i>
+                  GPU Accelerated
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-cta">
+          <a href="projects.html" class="btn btn-outline">
+            <i class="fas fa-folder-open"></i>
+            Explore All Projects
+          </a>
         </div>
       </div>
     </section>
-    
-    <section id="latest-blogs">
-      <h2>Latest Blog Posts</h2>
-      <div class="blog-preview-container">
-        <div class="blog-preview">
-          <div class="blog-preview-category">Hacking</div>
-          <h3>Modern Hacking Lab</h3>
-          <p class="blog-preview-date">Coming Soon</p>
-          <p class="blog-preview-text">As cyber threats continue to grow and AI becomes an integral part of our daily lives, it's essential to harness the power of both AI and cybersecurity together to protect ourselves in today's digital era.</p>
-          <a href="blog.html" class="btn btn-small">Read More</a>
+
+    <section id="about-preview" class="section bg-alternate">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2 class="section-title">About Me</h2>
+            <p class="lead">
+              Dedicated cybersecurity professional with expertise in threat analysis, 
+              penetration testing, and secure system design. Passionate about building 
+              resilient digital infrastructures and contributing to open-source security tools.
+            </p>
+            <p>
+              My journey in cybersecurity spans vulnerability assessment, risk analysis, 
+              and developing innovative security solutions. I specialize in creating tools 
+              that help organizations identify and mitigate security threats effectively.
+            </p>
+            
+            <div class="skills-highlight">
+              <h3>Core Competencies</h3>
+              <div class="skills-grid">
+                <div class="skill-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>Network Security</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-bug"></i>
+                  <span>Penetration Testing</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-search"></i>
+                  <span>Vulnerability Assessment</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-robot"></i>
+                  <span>AI Security Tools</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="about.html" class="btn btn-primary">
+              <i class="fas fa-user"></i>
+              Learn More About Me
+            </a>
+          </div>
+          <div class="about-visual">
+            <div class="security-metrics">
+              <div class="metric-card">
+                <div class="metric-value">5+</div>
+                <div class="metric-label">Years Experience</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">20+</div>
+                <div class="metric-label">Security Tools</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">100+</div>
+                <div class="metric-label">Vulnerabilities Found</div>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div class="blog-preview">
-          <div class="blog-preview-category">AI</div>
-          <h3>Create AI tools for defending digital security</h3>
-          <p class="blog-preview-date">Coming SOON</p>
-          <p class="blog-preview-text">I plays an increasingly vital role in penetration testing (pentesting) and cybersecurity by enhancing both defensive and offensive capabilities. </p>
-          <a href="blog.html" class="btn btn-small">Read More</a>
-        </div>
-        
-        <div class="blog-preview">
-          <div class="blog-preview-category">Career</div>
-          <h3>How I Founded my Roots</h3>
-          <p class="blog-preview-date">July 5, 2023</p>
-          <p class="blog-preview-text">My journey into cybersecurity began with a deep curiosity about how systems work—and more importantly, how they can be broken. I started by exploring basic networking and ethical hacking tutorials, gradually diving deeper into areas like vulnerability assessment, penetration testing, and system hardening. Hands-on labs, Capture the Flag (CTF) competitions, and community forums helped me build both practical skills and a passion for securing digital environments.</p>
-          <a href="blog.html" class="btn btn-small">Read More</a>
-        </div>
-      </div>
-      <div class="section-cta">
-        <a href="blog.html" class="btn">View All Posts</a>
       </div>
     </section>
-    
-    <section id="contact-preview">
-      <h2>Get In Touch</h2>
-      <p>Have a project in mind or want to collaborate? I'd love to hear from you!</p>
-      <div class="contact-options">
-        <div class="contact-option">
-          <i class="fas fa-envelope"></i>
-          <h3>Email Me</h3>
-          <p><a href="mailto:st944452@gmail.com">st944452@gmail.com</a></p>
-        </div>
+
+    <section id="latest-blogs" class="section">
+      <div class="container">
+        <h2 class="section-title">Latest Insights</h2>
+        <p class="section-subtitle">Cybersecurity knowledge and research findings</p>
         
-        <div class="contact-option">
-          <i class="fas fa-phone"></i>
-          <h3>Call Me</h3>
-          <p><a href="tel:+919634173539">+91 9634173539</a></p>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-header">
+              <span class="blog-category">AI Security</span>
+              <time class="blog-date">Coming Soon</time>
+            </div>
+            <h3>Modern Hacking Lab: AI-Powered Security Testing</h3>
+            <p>Exploring how artificial intelligence is revolutionizing cybersecurity testing and defense mechanisms in today's digital landscape.</p>
+            <a href="blog.html" class="blog-link">
+              <span>Read More</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-header">
+              <span class="blog-category">Tools</span>
+              <time class="blog-date">Coming Soon</time>
+            </div>
+            <h3>Building AI Tools for Digital Defense</h3>
+            <p>Deep dive into creating machine learning-powered security tools that enhance penetration testing and threat detection capabilities.</p>
+            <a href="blog.html" class="blog-link">
+              <span>Read More</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-header">
+              <span class="blog-category">Career</span>
+              <time class="blog-date">July 5, 2023</time>
+            </div>
+            <h3>My Cybersecurity Journey</h3>
+            <p>From curiosity about system vulnerabilities to becoming a cybersecurity professional - my path through ethical hacking and security research.</p>
+            <a href="blog.html" class="blog-link">
+              <span>Read More</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </article>
         </div>
-        
-        <div class="contact-option">
-          <i class="fab fa-linkedin"></i>
-          <h3>Connect</h3>
-          <p><a href="https://www.linkedin.com/in/rohit-kumar-777b30165/" target="_blank">LinkedIn</a></p>
+
+        <div class="section-cta">
+          <a href="blog.html" class="btn btn-outline">
+            <i class="fas fa-newspaper"></i>
+            View All Posts
+          </a>
         </div>
       </div>
-      <div class="contact-cta">
-        <a href="contact.html" class="btn">Contact Page</a>
+    </section>
+
+    <section id="contact-preview" class="section bg-alternate">
+      <div class="container">
+        <div class="contact-hero">
+          <h2 class="section-title">Let's Collaborate</h2>
+          <p class="section-subtitle">Ready to strengthen your security posture?</p>
+          
+          <div class="contact-grid">
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Email</h3>
+                <a href="mailto:st944452@gmail.com">st944452@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Phone</h3>
+                <a href="tel:+919634173539">+91 9634173539</a>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div class="contact-details">
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/rohit-kumar-777b30165/" target="_blank">Connect with me</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-cta">
+            <a href="contact.html" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              Get In Touch
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Rohit Kumar</h3>
-        <p>Cyber Security analyst & Researcher</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Connect</h3>
-        <div class="social-links">
-          <a href="https://github.com/rohitkumar" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/rohit-kumar-777b30165/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/rohitkumar" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Rohit Kumar</h3>
+          <p>Cybersecurity Analyst & Researcher</p>
+          <div class="social-links">
+            <a href="https://github.com/st944452" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/rohit-kumar-777b30165/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li>Penetration Testing</li>
+            <li>Vulnerability Assessment</li>
+            <li>Security Auditing</li>
+            <li>Tool Development</li>
+          </ul>
         </div>
       </div>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2025 Rohit Kumar. All Rights Reserved.</p>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Rohit Kumar. All rights reserved.</p>
+        <p>Building secure digital futures.</p>
+      </div>
     </div>
   </footer>
 

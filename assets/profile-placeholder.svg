@@ -1,0 +1,152 @@
+<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="profileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A6CF7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333EA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="150" cy="150" r="140" fill="url(#profileGradient)" opacity="0.1"/>
+  <circle cx="150" cy="150" r="120" fill="url(#profileGradient)" opacity="0.2"/>
+  
+  <!-- Tech Grid Pattern -->
+  <g opacity="0.1">
+    <defs>
+      <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#4A6CF7" stroke-width="0.5"/>
+      </pattern>
+    </defs>
+    <circle cx="150" cy="150" r="140" fill="url(#grid)"/>
+  </g>
+  
+  <!-- Main Profile Icon -->
+  <g transform="translate(150, 150)">
+    <!-- Head -->
+    <circle cx="0" cy="-30" r="35" fill="url(#profileGradient)" opacity="0.8"/>
+    
+    <!-- Body -->
+    <ellipse cx="0" cy="25" rx="50" ry="45" fill="url(#profileGradient)" opacity="0.8"/>
+    
+    <!-- Security Badge/Shield -->
+    <g transform="translate(25, -45)">
+      <path d="M0,-15 L10,-10 L10,10 L0,15 L-10,10 L-10,-10 Z" 
+            fill="url(#shieldGradient)" 
+            filter="url(#glow)"/>
+      <path d="M-5,-5 L0,0 L5,-8" 
+            stroke="white" 
+            stroke-width="2" 
+            fill="none" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Tech Elements -->
+    <g opacity="0.6">
+      <!-- Circuit Lines -->
+      <path d="M-60,-20 L-40,-20 L-40,-10 L-30,-10" 
+            stroke="#4A6CF7" 
+            stroke-width="2" 
+            fill="none"/>
+      <path d="M60,-20 L40,-20 L40,-10 L30,-10" 
+            stroke="#4A6CF7" 
+            stroke-width="2" 
+            fill="none"/>
+      <path d="M-50,50 L-30,50 L-30,40" 
+            stroke="#4A6CF7" 
+            stroke-width="2" 
+            fill="none"/>
+      <path d="M50,50 L30,50 L30,40" 
+            stroke="#4A6CF7" 
+            stroke-width="2" 
+            fill="none"/>
+      
+      <!-- Tech Nodes -->
+      <circle cx="-40" cy="-20" r="3" fill="#4A6CF7"/>
+      <circle cx="40" cy="-20" r="3" fill="#4A6CF7"/>
+      <circle cx="-30" cy="50" r="3" fill="#4A6CF7"/>
+      <circle cx="30" cy="50" r="3" fill="#4A6CF7"/>
+    </g>
+  </g>
+  
+  <!-- Outer Ring Animation -->
+  <circle cx="150" cy="150" r="145" 
+          fill="none" 
+          stroke="url(#profileGradient)" 
+          stroke-width="2" 
+          opacity="0.5"
+          stroke-dasharray="10,5">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0 150 150"
+      to="360 150 150"
+      dur="20s"
+      repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Cybersecurity Icons -->
+  <g opacity="0.4">
+    <!-- Lock Icon -->
+    <g transform="translate(220, 100)">
+      <rect x="-6" y="-2" width="12" height="8" rx="1" fill="#4A6CF7"/>
+      <path d="M-4,-6 C-4,-8 -2,-10 0,-10 C2,-10 4,-8 4,-6 L4,-2" 
+            stroke="#4A6CF7" 
+            stroke-width="1.5" 
+            fill="none"/>
+    </g>
+    
+    <!-- Terminal Icon -->
+    <g transform="translate(80, 100)">
+      <rect x="-8" y="-6" width="16" height="12" rx="2" fill="none" stroke="#4A6CF7" stroke-width="1.5"/>
+      <path d="M-5,-2 L-2,0 L-5,2" stroke="#4A6CF7" stroke-width="1" fill="none"/>
+      <line x1="0" y1="2" x2="4" y2="2" stroke="#4A6CF7" stroke-width="1"/>
+    </g>
+    
+    <!-- Network Icon -->
+    <g transform="translate(220, 200)">
+      <circle cx="0" cy="0" r="2" fill="#4A6CF7"/>
+      <circle cx="-8" cy="-6" r="2" fill="#4A6CF7"/>
+      <circle cx="8" cy="-6" r="2" fill="#4A6CF7"/>
+      <circle cx="0" cy="8" r="2" fill="#4A6CF7"/>
+      <line x1="0" y1="0" x2="-8" y2="-6" stroke="#4A6CF7" stroke-width="1"/>
+      <line x1="0" y1="0" x2="8" y2="-6" stroke="#4A6CF7" stroke-width="1"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#4A6CF7" stroke-width="1"/>
+    </g>
+    
+    <!-- Code Icon -->
+    <g transform="translate(80, 200)">
+      <path d="M-6,-3 L-9,0 L-6,3" stroke="#4A6CF7" stroke-width="1.5" fill="none"/>
+      <path d="M6,-3 L9,0 L6,3" stroke="#4A6CF7" stroke-width="1.5" fill="none"/>
+      <line x1="-2" y1="-4" x2="2" y2="4" stroke="#4A6CF7" stroke-width="1.5"/>
+    </g>
+  </g>
+  
+  <!-- Floating Particles -->
+  <g opacity="0.3">
+    <circle cx="70" cy="80" r="1.5" fill="#4A6CF7">
+      <animate attributeName="cy" values="80;60;80" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="230" cy="120" r="1" fill="#9333EA">
+      <animate attributeName="cy" values="120;100;120" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90" cy="220" r="1.5" fill="#10B981">
+      <animate attributeName="cy" values="220;200;220" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="210" cy="180" r="1" fill="#4A6CF7">
+      <animate attributeName="cy" values="180;160;180" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

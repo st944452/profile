@@ -3,206 +3,510 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Projects by Rohit Kumar - Developer Portfolio" />
+  <meta name="description" content="Cybersecurity Projects by Rohit Kumar - Security Tools and Research" />
+  <meta name="keywords" content="cybersecurity projects, penetration testing tools, security research" />
   <title>Projects | Rohit Kumar</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-    <h1>Rohit Kumar</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html" class="active">Projects</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>Rohit Kumar</h1>
+        <span class="brand-subtitle">Cybersecurity Analyst</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link active">Projects</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
-    <button id="theme-toggle" aria-label="Toggle dark/light theme">
-      <i class="fas fa-moon"></i>
-    </button>
   </header>
 
   <main>
-    <section id="projects" class="page-section">
-      <h2>Projects</h2>
-      <div class="project-filters">
-        <button class="filter-btn active" data-category="all">All Projects</button>
-        <button class="filter-btn" data-category="web">Penetration Testing tool</button>
-        <button class="filter-btn" data-category="mobile">Hash Cracking Tool</button>
-        <button class="filter-btn" data-category="ui">Information-Gathering tool</button>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">Security Projects</h1>
+        <p class="page-subtitle">Innovative cybersecurity tools and research initiatives</p>
       </div>
-      
-      <div class="projects-grid">
-        <div class="project" data-category="web">
-          <div class="project-image">
-            <img src="pentest.png" alt="E-Commerce Platform" />
-          </div>
-          <div class="project-content">
-            <h3>Penetration Testing Tool</h3>
-            <div class="project-tags">
-              <span class="tag">Java</span>
-              <span class="tag">Socket Programming</span>
-              <span class="tag">GUI</span>
-              <span class="tag">Linux</span>
-            </div>
-            <p>Details about the project</p>
-            <div class="project-links">
-              <a href="https://github.com/st944452/PenTesting-Automation/blob/main/PentestApp.java" target="_blank" class="btn btn-small">
-                <i class="fab fa-github"></i> View Code
-              </a>
-              <a href="#" target="_blank" class="btn btn-small">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project" data-category="web">
-          <div class="project-image">
-            <img src="https://via.placeholder.com/600x400?text=Weather+Dashboard" alt="Weather Dashboard" />
-          </div>
-          <div class="project-content">
-            <h3>Weather Dashboard</h3>
-            <div class="project-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">Chart.js</span>
-              <span class="tag">API</span>
-            </div>
-            <p>Real-time weather tracking application with visualization of forecast data. Utilizes OpenWeather API and Chart.js for data display.</p>
-            <div class="project-links">
-              <a href="https://github.com/rohitkumar/weather-dashboard" target="_blank" class="btn btn-small">
-                <i class="fab fa-github"></i> View Code
-              </a>
-              <a href="#" target="_blank" class="btn btn-small">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-              </a>
-            </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="projects-filter">
+          <h2 class="filter-title">Filter Projects</h2>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">
+              <i class="fas fa-th"></i>
+              All Projects
+            </button>
+            <button class="filter-btn" data-category="penetration">
+              <i class="fas fa-shield-alt"></i>
+              Penetration Testing
+            </button>
+            <button class="filter-btn" data-category="cryptography">
+              <i class="fas fa-lock"></i>
+              Cryptography
+            </button>
+            <button class="filter-btn" data-category="monitoring">
+              <i class="fas fa-eye"></i>
+              Security Monitoring
+            </button>
+            <button class="filter-btn" data-category="ai">
+              <i class="fas fa-robot"></i>
+              AI Security
+            </button>
           </div>
         </div>
-        
-        <div class="project" data-category="web mobile">
-          <div class="project-image">
-            <img src="https://via.placeholder.com/600x400?text=Task+Management+System" alt="Task Management System" />
-          </div>
-          <div class="project-content">
-            <h3>Task Management System</h3>
-            <div class="project-tags">
-              <span class="tag">Vue.js</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">Responsive</span>
+
+        <div class="projects-grid">
+          <!-- Featured Project 1 -->
+          <article class="project-card featured" data-category="penetration ai">
+            <div class="project-header">
+              <span class="project-status">Active</span>
+              <div class="project-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
-            <p>Collaborative task manager with real-time updates, user assignments, and progress tracking. Built with Firebase and Vue.js.</p>
-            <div class="project-links">
-              <a href="https://github.com/rohitkumar/task-manager" target="_blank" class="btn btn-small">
-                <i class="fab fa-github"></i> View Code
-              </a>
-              <a href="#" target="_blank" class="btn btn-small">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-              </a>
+            <div class="project-image">
+              <img src="assets/project-pentest.svg" alt="Automated Penetration Testing Tool" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/st944452/PenTesting-Automation" target="_blank" class="project-link" aria-label="View source code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#project-pentest-modal" class="project-link modal-trigger" aria-label="View details">
+                    <i class="fas fa-info-circle"></i>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="project" data-category="mobile">
-          <div class="project-image">
-            <img src="https://via.placeholder.com/600x400?text=Fitness+Tracker+App" alt="Fitness Tracker App" />
-          </div>
-          <div class="project-content">
-            <h3>Fitness Tracker App</h3>
-            <div class="project-tags">
-              <span class="tag">React Native</span>
-              <span class="tag">Redux</span>
-              <span class="tag">Health API</span>
+            <div class="project-content">
+              <h3>Automated Penetration Testing Tool</h3>
+              <p>
+                Advanced AI-powered web vulnerability scanner with machine learning-based result analysis. 
+                Provides intelligent attack vector predictions and comprehensive security assessments.
+              </p>
+              <div class="project-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> AI-powered vulnerability detection</li>
+                  <li><i class="fas fa-check"></i> Automated exploit generation</li>
+                  <li><i class="fas fa-check"></i> Comprehensive reporting</li>
+                  <li><i class="fas fa-check"></i> Machine learning predictions</li>
+                </ul>
+              </div>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">AI/ML</span>
+                <span class="tag">Security</span>
+                <span class="tag">Automation</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat">
+                  <i class="fas fa-code-branch"></i>
+                  <span>Open Source</span>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-download"></i>
+                  <span>500+ Downloads</span>
+                </div>
+              </div>
             </div>
-            <p>Mobile app for tracking workouts, setting fitness goals, and monitoring progress over time. Features include custom workout plans and nutrition logging.</p>
-            <div class="project-links">
-              <a href="https://github.com/rohitkumar/fitness-tracker" target="_blank" class="btn btn-small">
-                <i class="fab fa-github"></i> View Code
-              </a>
-              <a href="#" target="_blank" class="btn btn-small">
-                <i class="fas fa-external-link-alt"></i> App Store
-              </a>
+          </article>
+
+          <!-- Featured Project 2 -->
+          <article class="project-card featured" data-category="cryptography">
+            <div class="project-header">
+              <span class="project-status">Completed</span>
+              <div class="project-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="project" data-category="ui">
-          <div class="project-image">
-            <img src="https://via.placeholder.com/600x400?text=Banking+App+UI" alt="Banking App UI" />
-          </div>
-          <div class="project-content">
-            <h3>Banking App UI Design</h3>
-            <div class="project-tags">
-              <span class="tag">Figma</span>
-              <span class="tag">UI/UX</span>
-              <span class="tag">Prototype</span>
+            <div class="project-image">
+              <img src="assets/project-hash.svg" alt="GPU Hash Cracking Tool" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="#" target="_blank" class="project-link" aria-label="View source code">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="#project-hash-modal" class="project-link modal-trigger" aria-label="View details">
+                    <i class="fas fa-info-circle"></i>
+                  </a>
+                </div>
+              </div>
             </div>
-            <p>Complete UI/UX design for a modern banking application. Includes user flows, wireframes, and interactive prototypes with a focus on accessibility and ease of use.</p>
-            <div class="project-links">
-              <a href="https://dribbble.com/shots/rohitkumar/banking-app" target="_blank" class="btn btn-small">
-                <i class="fas fa-image"></i> View Design
-              </a>
-              <a href="#" target="_blank" class="btn btn-small">
-                <i class="fas fa-play"></i> Interactive Demo
-              </a>
+            <div class="project-content">
+              <h3>GPU-Accelerated Hash Cracker</h3>
+              <p>
+                High-performance dictionary-based hash cracking tool utilizing OpenCL and AMD GPUs. 
+                Optimized for speed and efficiency in password recovery operations.
+              </p>
+              <div class="project-features">
+                <ul>
+                  <li><i class="fas fa-check"></i> Multi-GPU support</li>
+                  <li><i class="fas fa-check"></i> Multiple hash algorithms</li>
+                  <li><i class="fas fa-check"></i> Dictionary optimization</li>
+                  <li><i class="fas fa-check"></i> Real-time progress tracking</li>
+                </ul>
+              </div>
+              <div class="project-tags">
+                <span class="tag">C Programming</span>
+                <span class="tag">OpenCL</span>
+                <span class="tag">GPU Computing</span>
+                <span class="tag">Cryptography</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat">
+                  <i class="fas fa-bolt"></i>
+                  <span>High Performance</span>
+                </div>
+                <div class="stat">
+                  <i class="fas fa-microchip"></i>
+                  <span>GPU Optimized</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="project" data-category="web ui">
-          <div class="project-image">
-            <img src="https://via.placeholder.com/600x400?text=Portfolio+Website+Template" alt="Portfolio Website Template" />
-          </div>
-          <div class="project-content">
-            <h3>Portfolio Website Template</h3>
-            <div class="project-tags">
-              <span class="tag">HTML/CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Responsive</span>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card" data-category="monitoring">
+            <div class="project-header">
+              <span class="project-status">In Development</span>
+              <div class="project-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
             </div>
-            <p>Customizable portfolio template for creative professionals. Features a clean, modern design with smooth animations and a focus on showcasing work effectively.</p>
-            <div class="project-links">
-              <a href="https://github.com/rohitkumar/portfolio-template" target="_blank" class="btn btn-small">
-                <i class="fab fa-github"></i> View Code
-              </a>
-              <a href="#" target="_blank" class="btn btn-small">
-                <i class="fas fa-external-link-alt"></i> Live Demo
-              </a>
+            <div class="project-content">
+              <h3>Intrusion Detection System</h3>
+              <p>
+                Real-time network monitoring and anomaly detection system with automated threat response capabilities.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Network Security</span>
+                <span class="tag">Machine Learning</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>Real-time Protection</span>
+                </div>
+              </div>
             </div>
-          </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card" data-category="monitoring">
+            <div class="project-header">
+              <span class="project-status">Completed</span>
+              <div class="project-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Keylogger Detection Tool</h3>
+              <p>
+                Desktop application for detecting and preventing keylogger attacks through behavioral analysis and system monitoring.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Tkinter</span>
+                <span class="tag">Malware Analysis</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat">
+                  <i class="fas fa-eye"></i>
+                  <span>Behavioral Detection</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="project-card" data-category="ai">
+            <div class="project-header">
+              <span class="project-status">Research</span>
+              <div class="project-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>ML-Based Malware Classifier</h3>
+              <p>
+                Machine learning system for automated malware detection and classification using static analysis and feature extraction.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">Scikit-Learn</span>
+                <span class="tag">Static Analysis</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat">
+                  <i class="fas fa-robot"></i>
+                  <span>AI-Powered</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="project-card" data-category="monitoring">
+            <div class="project-header">
+              <span class="project-status">Planning</span>
+              <div class="project-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Dark Web Intelligence Tool</h3>
+              <p>
+                Automated threat intelligence gathering from dark web sources for proactive security monitoring.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Tor Network</span>
+                <span class="tag">Web Scraping</span>
+                <span class="tag">Intelligence</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat">
+                  <i class="fas fa-user-secret"></i>
+                  <span>Threat Intel</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 7 -->
+          <article class="project-card" data-category="monitoring">
+            <div class="project-header">
+              <span class="project-status">Active</span>
+              <div class="project-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Log Analysis & Alerting System</h3>
+              <p>
+                Comprehensive log analysis platform using ELK stack for detecting security incidents and generating automated alerts.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Elasticsearch</span>
+                <span class="tag">Logstash</span>
+                <span class="tag">Kibana</span>
+                <span class="tag">Security Analytics</span>
+              </div>
+              <div class="project-stats">
+                <div class="stat">
+                  <i class="fas fa-chart-line"></i>
+                  <span>Analytics</span>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Rohit Kumar</h3>
-        <p>Full Stack Developer & Open Source Enthusiast</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Connect</h3>
-        <div class="social-links">
-          <a href="https://github.com/rohitkumar" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/rohitkumar" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/rohitkumar" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+    <!-- Project Modals -->
+    <div id="project-pentest-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-header">
+          <h2>Automated Penetration Testing Tool</h2>
+          <div class="modal-tags">
+            <span class="tag">AI/ML</span>
+            <span class="tag">Python</span>
+            <span class="tag">Security</span>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="assets/project-pentest.svg" alt="Penetration Testing Tool" />
+          </div>
+          <div class="modal-text">
+            <h3>Project Overview</h3>
+            <p>
+              This advanced penetration testing tool leverages artificial intelligence and machine learning 
+              to automate vulnerability discovery and exploit generation. The system is trained on extensive 
+              vulnerability databases to provide intelligent attack vector predictions and comprehensive 
+              security assessments.
+            </p>
+            
+            <h3>Key Features</h3>
+            <ul>
+              <li>AI-powered vulnerability scanning with pattern recognition</li>
+              <li>Automated exploit generation based on discovered vulnerabilities</li>
+              <li>Machine learning-based risk assessment and prioritization</li>
+              <li>Comprehensive reporting with remediation recommendations</li>
+              <li>Integration with popular security frameworks and tools</li>
+            </ul>
+
+            <h3>Technical Implementation</h3>
+            <p>
+              Built using Python with TensorFlow for machine learning capabilities, the tool incorporates 
+              advanced algorithms for pattern recognition and vulnerability classification. The system 
+              continuously learns from new vulnerability data to improve its detection accuracy.
+            </p>
+
+            <div class="modal-links">
+              <a href="https://github.com/st944452/PenTesting-Automation" target="_blank" class="btn btn-primary">
+                <i class="fab fa-github"></i>
+                View Source Code
+              </a>
+              <a href="#" class="btn btn-outline">
+                <i class="fas fa-download"></i>
+                Download Tool
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="copyright">
-      <p>&copy; 2025 Rohit Kumar. All Rights Reserved.</p>
+
+    <div id="project-hash-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-header">
+          <h2>GPU-Accelerated Hash Cracker</h2>
+          <div class="modal-tags">
+            <span class="tag">C Programming</span>
+            <span class="tag">OpenCL</span>
+            <span class="tag">GPU Computing</span>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img src="assets/project-hash.svg" alt="Hash Cracking Tool" />
+          </div>
+          <div class="modal-text">
+            <h3>Project Overview</h3>
+            <p>
+              High-performance hash cracking utility designed specifically for AMD GPUs using OpenCL. 
+              This tool optimizes dictionary-based attacks across multiple hash algorithms with 
+              efficient memory management and parallel processing capabilities.
+            </p>
+            
+            <h3>Supported Algorithms</h3>
+            <ul>
+              <li>MD5 with optimized GPU kernels</li>
+              <li>SHA-256 with parallel processing</li>
+              <li>SHA-512 with memory optimization</li>
+              <li>Custom hash formats with modular design</li>
+            </ul>
+
+            <h3>Performance Features</h3>
+            <p>
+              Utilizes advanced GPU computing techniques including coalesced memory access, 
+              optimized kernel execution, and efficient work-group management to achieve 
+              maximum hash processing throughput on commodity hardware.
+            </p>
+
+            <div class="modal-links">
+              <a href="#" target="_blank" class="btn btn-primary">
+                <i class="fab fa-github"></i>
+                View Source Code
+              </a>
+              <a href="#" class="btn btn-outline">
+                <i class="fas fa-book"></i>
+                Documentation
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Rohit Kumar</h3>
+          <p>Cybersecurity Analyst & Researcher</p>
+          <div class="social-links">
+            <a href="https://github.com/st944452" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/rohit-kumar-777b30165/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li>Penetration Testing</li>
+            <li>Vulnerability Assessment</li>
+            <li>Security Auditing</li>
+            <li>Tool Development</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Rohit Kumar. All rights reserved.</p>
+        <p>Building secure digital futures.</p>
+      </div>
     </div>
   </footer>
 

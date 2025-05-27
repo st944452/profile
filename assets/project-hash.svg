@@ -1,0 +1,235 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hashBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F1419;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A1A2E;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gpuGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DC2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EF4444;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hashGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EAB308;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="performanceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <filter id="gpuGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="circuitPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M20,0 L20,20 M0,20 L40,20 M30,10 L40,10 M10,30 L20,30" 
+            stroke="#334155" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="20" cy="20" r="1" fill="#334155" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#hashBg)"/>
+  
+  <!-- Circuit Pattern Background -->
+  <rect width="600" height="400" fill="url(#circuitPattern)"/>
+  
+  <!-- Main GPU Unit -->
+  <g transform="translate(100, 150)">
+    <!-- GPU Card Base -->
+    <rect x="0" y="0" width="400" height="120" rx="8" fill="#1E293B" stroke="#475569" stroke-width="2"/>
+    
+    <!-- GPU Cooler -->
+    <rect x="20" y="20" width="360" height="80" rx="40" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    
+    <!-- Fan Blades -->
+    <g transform="translate(200, 60)">
+      <circle cx="0" cy="0" r="35" fill="none" stroke="url(#gpuGradient)" stroke-width="2" opacity="0.7"/>
+      
+      <!-- Fan Blades Animation -->
+      <g>
+        <path d="M0,-30 Q10,-20 0,-10 Q-10,-20 0,-30" fill="url(#gpuGradient)" opacity="0.6"/>
+        <path d="M30,0 Q20,10 10,0 Q20,-10 30,0" fill="url(#gpuGradient)" opacity="0.6"/>
+        <path d="M0,30 Q-10,20 0,10 Q10,20 0,30" fill="url(#gpuGradient)" opacity="0.6"/>
+        <path d="M-30,0 Q-20,-10 -10,0 Q-20,10 -30,0" fill="url(#gpuGradient)" opacity="0.6"/>
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0;360"
+          dur="1s"
+          repeatCount="indefinite"/>
+      </g>
+      
+      <!-- Center Hub -->
+      <circle cx="0" cy="0" r="8" fill="url(#gpuGradient)" filter="url(#gpuGlow)"/>
+    </g>
+    
+    <!-- GPU Memory Modules -->
+    <g fill="#475569">
+      <rect x="40" y="110" width="25" height="8" rx="2"/>
+      <rect x="70" y="110" width="25" height="8" rx="2"/>
+      <rect x="100" y="110" width="25" height="8" rx="2"/>
+      <rect x="130" y="110" width="25" height="8" rx="2"/>
+      <rect x="160" y="110" width="25" height="8" rx="2"/>
+      <rect x="190" y="110" width="25" height="8" rx="2"/>
+      <rect x="220" y="110" width="25" height="8" rx="2"/>
+      <rect x="250" y="110" width="25" height="8" rx="2"/>
+    </g>
+    
+    <!-- Power Connectors -->
+    <rect x="380" y="30" width="15" height="20" rx="2" fill="#334155"/>
+    <rect x="380" y="55" width="15" height="20" rx="2" fill="#334155"/>
+    
+    <!-- GPU Brand Label -->
+    <text x="50" y="40" font-family="monospace" font-size="12" fill="url(#gpuGradient)" font-weight="bold">RX 570</text>
+    <text x="50" y="55" font-family="monospace" font-size="8" fill="#94A3B8">8GB GDDR5</text>
+  </g>
+  
+  <!-- Hash Processing Terminal -->
+  <g transform="translate(50, 20)">
+    <!-- Terminal Window -->
+    <rect x="0" y="0" width="300" height="120" rx="8" fill="#000000" stroke="#333333" stroke-width="2"/>
+    
+    <!-- Terminal Header -->
+    <rect x="0" y="0" width="300" height="25" rx="8" fill="#1F2937"/>
+    <circle cx="15" cy="12" r="4" fill="#EF4444"/>
+    <circle cx="30" cy="12" r="4" fill="#F59E0B"/>
+    <circle cx="45" cy="12" r="4" fill="#10B981"/>
+    <text x="60" y="17" font-family="monospace" font-size="10" fill="#9CA3AF">Hash Cracker v2.1</text>
+    
+    <!-- Terminal Content -->
+    <g transform="translate(10, 35)" font-family="monospace" font-size="9">
+      <text x="0" y="12" fill="#10B981">$ ./gpu_crack --mode dict --hash md5 --gpu</text>
+      <text x="0" y="24" fill="#94A3B8">[INFO] Initializing OpenCL context...</text>
+      <text x="0" y="36" fill="#94A3B8">[GPU] RX 570 detected - 2048 cores</text>
+      <text x="0" y="48" fill="#F59E0B">[DICT] Loading wordlist: rockyou.txt</text>
+      <text x="0" y="60" fill="#94A3B8">[HASH] Target: 5d41402abc4b2a76b9719d911017c592</text>
+      <text x="0" y="72" fill="#10B981">[CRACK] Password found: hello</text>
+      <text x="0" y="84" fill="#EAB308">Rate: 2.8 GH/s | Progress: 100%</text>
+    </g>
+  </g>
+  
+  <!-- Performance Metrics -->
+  <g transform="translate(380, 20)">
+    <rect x="0" y="0" width="180" height="120" rx="8" fill="#1F2937" stroke="#374151" stroke-width="1" opacity="0.9"/>
+    
+    <!-- Title -->
+    <text x="90" y="20" font-family="monospace" font-size="12" fill="#F59E0B" text-anchor="middle" font-weight="bold">PERFORMANCE</text>
+    
+    <!-- GPU Usage -->
+    <text x="10" y="40" font-family="monospace" font-size="9" fill="#94A3B8">GPU Usage:</text>
+    <rect x="10" y="45" width="160" height="8" rx="4" fill="#374151"/>
+    <rect x="10" y="45" width="144" height="8" rx="4" fill="url(#performanceGradient)">
+      <animate attributeName="width" values="120;160;120" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <text x="175" y="52" font-family="monospace" font-size="8" fill="#10B981" text-anchor="end">90%</text>
+    
+    <!-- Hash Rate -->
+    <text x="10" y="70" font-family="monospace" font-size="9" fill="#94A3B8">Hash Rate:</text>
+    <text x="170" y="70" font-family="monospace" font-size="10" fill="url(#hashGradient)" text-anchor="end" font-weight="bold">2.8 GH/s</text>
+    
+    <!-- Temperature -->
+    <text x="10" y="85" font-family="monospace" font-size="9" fill="#94A3B8">GPU Temp:</text>
+    <text x="170" y="85" font-family="monospace" font-size="10" fill="#EF4444" text-anchor="end">72°C</text>
+    
+    <!-- Power -->
+    <text x="10" y="100" font-family="monospace" font-size="9" fill="#94A3B8">Power:</text>
+    <text x="170" y="100" font-family="monospace" font-size="10" fill="#EAB308" text-anchor="end">150W</text>
+  </g>
+  
+  <!-- Hash Algorithms Visualization -->
+  <g transform="translate(50, 290)">
+    <!-- MD5 -->
+    <g>
+      <rect x="0" y="0" width="80" height="30" rx="4" fill="#EF4444" opacity="0.8"/>
+      <text x="40" y="12" font-family="monospace" font-size="10" fill="white" text-anchor="middle" font-weight="bold">MD5</text>
+      <text x="40" y="24" font-family="monospace" font-size="8" fill="white" text-anchor="middle">3.2 GH/s</text>
+    </g>
+    
+    <!-- SHA256 -->
+    <g transform="translate(90, 0)">
+      <rect x="0" y="0" width="80" height="30" rx="4" fill="#F59E0B" opacity="0.8"/>
+      <text x="40" y="12" font-family="monospace" font-size="10" fill="white" text-anchor="middle" font-weight="bold">SHA256</text>
+      <text x="40" y="24" font-family="monospace" font-size="8" fill="white" text-anchor="middle">1.1 GH/s</text>
+    </g>
+    
+    <!-- SHA512 -->
+    <g transform="translate(180, 0)">
+      <rect x="0" y="0" width="80" height="30" rx="4" fill="#8B5CF6" opacity="0.8"/>
+      <text x="40" y="12" font-family="monospace" font-size="10" fill="white" text-anchor="middle" font-weight="bold">SHA512</text>
+      <text x="40" y="24" font-family="monospace" font-size="8" fill="white" text-anchor="middle">380 MH/s</text>
+    </g>
+  </g>
+  
+  <!-- Progress Visualization -->
+  <g transform="translate(350, 290)">
+    <rect x="0" y="0" width="200" height="60" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    
+    <!-- Progress Title -->
+    <text x="100" y="18" font-family="monospace" font-size="10" fill="#94A3B8" text-anchor="middle">CRACKING PROGRESS</text>
+    
+    <!-- Progress Bar -->
+    <rect x="20" y="25" width="160" height="12" rx="6" fill="#374151"/>
+    <rect x="20" y="25" width="120" height="12" rx="6" fill="url(#hashGradient)">
+      <animate attributeName="width" values="60;160;60" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Progress Text -->
+    <text x="100" y="50" font-family="monospace" font-size="9" fill="#10B981" text-anchor="middle">75% - 14.3M/19.1M keys</text>
+  </g>
+  
+  <!-- Floating Hash Representations -->
+  <g opacity="0.3">
+    <!-- Hash 1 -->
+    <g transform="translate(500, 100)">
+      <text font-family="monospace" font-size="8" fill="#F59E0B">5d41402abc4b...</text>
+      <animate attributeName="transform" values="translate(500,100);translate(480,80);translate(500,100)" dur="6s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Hash 2 -->
+    <g transform="translate(30, 250)">
+      <text font-family="monospace" font-size="8" fill="#8B5CF6">098f6bcd4621...</text>
+      <animate attributeName="transform" values="translate(30,250);translate(50,230);translate(30,250)" dur="5s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Hash 3 -->
+    <g transform="translate(520, 320)">
+      <text font-family="monospace" font-size="8" fill="#10B981">e3b0c44298fc...</text>
+      <animate attributeName="transform" values="translate(520,320);translate(540,300);translate(520,320)" dur="7s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Data Flow Visualization -->
+  <g stroke="#64748B" stroke-width="2" fill="none" opacity="0.6">
+    <!-- Dictionary to GPU -->
+    <path d="M50,200 Q150,180 200,190">
+      <animate attributeName="stroke-dashoffset" values="0;10" dur="1s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- GPU to Results -->
+    <path d="M400,200 Q450,180 500,190">
+      <animate attributeName="stroke-dashoffset" values="0;10" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- OpenCL Logo/Text -->
+  <g transform="translate(480, 260)">
+    <rect x="0" y="0" width="80" height="20" rx="10" fill="#1F2937" stroke="#DC2626" stroke-width="1"/>
+    <text x="40" y="14" font-family="monospace" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">OpenCL</text>
+  </g>
+  
+  <!-- Performance Indicators -->
+  <g transform="translate(20, 350)">
+    <!-- Speed Indicator -->
+    <circle cx="10" cy="10" r="8" fill="none" stroke="#10B981" stroke-width="2"/>
+    <text x="10" y="15" font-family="monospace" font-size="8" fill="#10B981" text-anchor="middle">⚡</text>
+    <text x="30" y="15" font-family="monospace" font-size="9" fill="#94A3B8">High Performance</text>
+    
+    <!-- Multi-GPU Support -->
+    <rect x="150" y="2" width="16" height="16" rx="2" fill="#F59E0B" opacity="0.8"/>
+    <text x="158" y="13" font-family="monospace" font-size="8" fill="white" text-anchor="middle">×4</text>
+    <text x="180" y="15" font-family="monospace" font-size="9" fill="#94A3B8">Multi-GPU Ready</text>
+  </g>
+</svg>

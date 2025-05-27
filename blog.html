@@ -3,106 +3,241 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Blog by Rohit Kumar - Developer Portfolio" />
+  <meta name="description" content="Cybersecurity Blog by Rohit Kumar - Security Insights and Research" />
+  <meta name="keywords" content="cybersecurity blog, security research, hacking tutorials, security insights" />
   <title>Blog | Rohit Kumar</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-    <h1>Rohit Kumar</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="blog.html" class="active">Blog</a>
-      <a href="contact.html">Contact</a>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>Rohit Kumar</h1>
+        <span class="brand-subtitle">Cybersecurity Analyst</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="blog.html" class="nav-link active">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
-    <button id="theme-toggle" aria-label="Toggle dark/light theme">
-      <i class="fas fa-moon"></i>
-    </button>
   </header>
 
   <main>
-    <section id="blog" class="page-section">
-      <h2>Blog</h2>
-      <div class="blog-header">
-        <p>Thoughts, insights, and tutorials about web development, technology, and my journey as a developer.</p>
-        <div class="blog-search">
-          <input type="text" id="blog-search-input" placeholder="Search blog posts...">
-          <button id="blog-search-btn"><i class="fas fa-search"></i></button>
-        </div>
-      </div>
-      
-      <div class="blog-filters">
-        <button class="filter-btn active" data-category="all">All</button>
-        <button class="filter-btn" data-category="javascript">JavaScript</button>
-        <button class="filter-btn" data-category="webdev">Web Development</button>
-        <button class="filter-btn" data-category="career">Career</button>
-      </div>
-      
-      <div id="blog-posts" class="blog-container">
-        <!-- Blog posts will be dynamically inserted here -->
-      </div>
-      
-      <div class="pagination">
-        <button id="load-more-btn" class="btn">Load More Posts</button>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">Security Insights</h1>
+        <p class="page-subtitle">Cybersecurity research, tutorials, and industry insights</p>
       </div>
     </section>
-    
-    <!-- Blog post template (hidden) -->
+
+    <section class="section">
+      <div class="container">
+        <div class="blog-header">
+          <div class="blog-controls">
+            <div class="search-container">
+              <input type="text" id="blog-search-input" placeholder="Search articles..." class="search-input">
+              <button id="blog-search-btn" class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div class="blog-filters">
+              <button class="filter-btn active" data-category="all">
+                <i class="fas fa-th"></i>
+                All Posts
+              </button>
+              <button class="filter-btn" data-category="security">
+                <i class="fas fa-shield-alt"></i>
+                Security
+              </button>
+              <button class="filter-btn" data-category="ai">
+                <i class="fas fa-robot"></i>
+                AI Security
+              </button>
+              <button class="filter-btn" data-category="tools">
+                <i class="fas fa-tools"></i>
+                Tools
+              </button>
+              <button class="filter-btn" data-category="career">
+                <i class="fas fa-briefcase"></i>
+                Career
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="blog-posts" class="blog-container">
+          <!-- Blog posts will be loaded here -->
+        </div>
+
+        <div class="pagination">
+          <button id="load-more-btn" class="btn btn-outline">
+            <i class="fas fa-plus"></i>
+            Load More Articles
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog post template -->
     <template id="blog-post-template">
       <article class="blog-post">
-        <div class="blog-header">
+        <div class="blog-post-header">
           <div class="blog-category"></div>
+          <time class="blog-date"></time>
         </div>
         <div class="blog-content">
-          <h3 class="blog-title"></h3>
-          <span class="blog-date"></span>
+          <h2 class="blog-title"></h2>
+          <div class="blog-meta">
+            <span class="read-time">
+              <i class="fas fa-clock"></i>
+              <span class="read-time-value"></span>
+            </span>
+            <span class="blog-author">
+              <i class="fas fa-user"></i>
+              Rohit Kumar
+            </span>
+          </div>
           <div class="blog-excerpt"></div>
-          <div class="blog-full-content"></div>
-          <button class="btn read-more">Read More</button>
-          <button class="btn read-less">Show Less</button>
+          <div class="blog-full-content" style="display: none;"></div>
+          <div class="blog-actions">
+            <button class="btn btn-primary read-more">
+              <i class="fas fa-book-open"></i>
+              Read More
+            </button>
+            <button class="btn btn-secondary read-less" style="display: none;">
+              <i class="fas fa-chevron-up"></i>
+              Show Less
+            </button>
+            <div class="blog-share">
+              <button class="share-btn" title="Share on Twitter">
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button class="share-btn" title="Share on LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </button>
+              <button class="share-btn" title="Copy Link">
+                <i class="fas fa-link"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </article>
     </template>
-    
-    <!-- Individual blog post page (dynamically loaded) -->
+
+    <!-- Featured article modal -->
     <div id="blog-post-modal" class="modal">
-      <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <div id="modal-blog-content"></div>
+      <div class="modal-content blog-modal">
+        <div class="modal-header">
+          <span class="modal-close">&times;</span>
+          <div class="modal-meta">
+            <span class="modal-category"></span>
+            <time class="modal-date"></time>
+          </div>
+        </div>
+        <div class="modal-body">
+          <h1 class="modal-title"></h1>
+          <div class="modal-author-info">
+            <div class="author-avatar">
+              <img src="assets/profile-placeholder.svg" alt="Rohit Kumar" />
+            </div>
+            <div class="author-details">
+              <span class="author-name">Rohit Kumar</span>
+              <span class="author-title">Cybersecurity Analyst</span>
+            </div>
+            <div class="article-stats">
+              <span class="read-time">
+                <i class="fas fa-clock"></i>
+                <span class="read-time-value"></span>
+              </span>
+            </div>
+          </div>
+          <div class="modal-content-body"></div>
+          <div class="modal-footer">
+            <div class="article-tags"></div>
+            <div class="article-share">
+              <h4>Share this article</h4>
+              <div class="share-buttons">
+                <a href="#" class="share-btn twitter" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                  Twitter
+                </a>
+                <a href="#" class="share-btn linkedin" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                  LinkedIn
+                </a>
+                <button class="share-btn copy-link">
+                  <i class="fas fa-link"></i>
+                  Copy Link
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Rohit Kumar</h3>
-        <p>Full Stack Developer & Open Source Enthusiast</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Connect</h3>
-        <div class="social-links">
-          <a href="https://github.com/rohitkumar" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/rohitkumar" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/rohitkumar" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Rohit Kumar</h3>
+          <p>Cybersecurity Analyst & Researcher</p>
+          <div class="social-links">
+            <a href="https://github.com/st944452" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/rohit-kumar-777b30165/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li>Penetration Testing</li>
+            <li>Vulnerability Assessment</li>
+            <li>Security Auditing</li>
+            <li>Tool Development</li>
+          </ul>
         </div>
       </div>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2025 Rohit Kumar. All Rights Reserved.</p>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Rohit Kumar. All rights reserved.</p>
+        <p>Building secure digital futures.</p>
+      </div>
     </div>
   </footer>
 

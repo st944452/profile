@@ -1,1036 +1,1245 @@
-// Blog Posts Data
-const blogPosts = [
-  {
-    id: 1,
-    title: "Modern JavaScript Features You Should Know",
-    category: "javascript",
-    date: "October 15, 2023",
-    excerpt: "JavaScript has evolved significantly over the years. This post explores the most useful modern features that can improve your code quality and developer experience.",
-    content: `
-      <p>JavaScript has evolved significantly over the years. This post explores the most useful modern features that can improve your code quality and developer experience.</p>
-      
-      <h4>1. Arrow Functions</h4>
-      <p>Arrow functions provide a more concise syntax for writing function expressions, offering both a shorter syntax and non-binding of 'this'.</p>
-      <pre><code>// Traditional function
-const add = function(a, b) {
-  return a + b;
-};
-
-// Arrow function
-const add = (a, b) => a + b;
-</code></pre>
-
-      <h4>2. Destructuring Assignment</h4>
-      <p>Destructuring allows you to extract data from arrays or objects into distinct variables with a more readable syntax.</p>
-      <pre><code>// Object destructuring
-const person = { name: 'John', age: 30 };
-const { name, age } = person;
-
-// Array destructuring
-const colors = ['red', 'green', 'blue'];
-const [primary, secondary] = colors;
-</code></pre>
-
-      <h4>3. Spread and Rest Operators</h4>
-      <p>The spread operator (...) allows an iterable to be expanded in places where zero or more arguments or elements are expected. The rest parameter syntax allows us to represent an indefinite number of arguments as an array.</p>
-      <pre><code>// Spread operator
-const numbers = [1, 2, 3];
-const newNumbers = [...numbers, 4, 5]; // [1, 2, 3, 4, 5]
-
-// Rest parameter
-function sum(...args) {
-  return args.reduce((total, num) => total + num, 0);
-}
-</code></pre>
-
-      <h4>4. Template Literals</h4>
-      <p>Template literals provide an easy way to interpolate variables and expressions into strings, as well as create multi-line strings.</p>
-      <pre><code>const name = 'World';
-const greeting = \`Hello ${name}!
-This is a multi-line string.\`;
-</code></pre>
-
-      <h4>5. Optional Chaining</h4>
-      <p>Optional chaining (?.) allows reading the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid.</p>
-      <pre><code>const user = {
-  profile: {
-    // address might not exist
+// Modern Cybersecurity Portfolio JavaScript
+class CyberPortfolio {
+  constructor() {
+    this.init();
+    this.setupEventListeners();
+    this.setupMobileMenu();
+    this.setupProjectFilters();
+    this.setupBlogFunctionality();
+    this.setupContactForm();
+    this.setupModals();
+    this.setupScrollEffects();
+    this.setupAnimations();
   }
-};
 
-// Without optional chaining
-const zipCode = user.profile && user.profile.address 
-  ? user.profile.address.zipCode : undefined;
-
-// With optional chaining
-const zipCode = user.profile?.address?.zipCode;
-</code></pre>
-
-      <p>Adopting these modern JavaScript features can significantly improve your code's readability and maintainability. Which features do you find most useful in your projects?</p>
-    `
-  },
-  {
-    id: 2,
-    title: "Building Responsive Websites: Best Practices",
-    category: "webdev",
-    date: "September 28, 2023",
-    excerpt: "Creating websites that look great on all devices is essential in today's mobile-first world. Learn the key principles and techniques for building truly responsive websites.",
-    content: `
-      <p>Creating websites that look great on all devices is essential in today's mobile-first world. Let's explore the key principles and techniques for building truly responsive websites.</p>
-      
-      <h4>The Foundation: Responsive Design Principles</h4>
-      <p>Responsive web design is built on three fundamental concepts:</p>
-      <ol>
-        <li><strong>Fluid Grids:</strong> Using relative units like percentages instead of fixed pixels for layout elements</li>
-        <li><strong>Flexible Images:</strong> Ensuring media scales within their containing elements</li>
-        <li><strong>Media Queries:</strong> Applying different styles based on device characteristics (primarily screen width)</li>
-      </ol>
-      
-      <h4>Mobile-First Approach</h4>
-      <p>Start by designing for the smallest screen first, then progressively enhance the experience for larger screens. This approach forces you to focus on content priorities and core functionality.</p>
-      
-      <pre><code>/* Mobile styles (base) */
-.container {
-  padding: 1rem;
-}
-
-/* Tablet styles */
-@media (min-width: 768px) {
-  .container {
-    padding: 2rem;
+  init() {
+    // Initialize portfolio
+    this.loadBlogPosts();
+    this.initializeSkillBars();
+    this.setupLazyLoading();
   }
-}
 
-/* Desktop styles */
-@media (min-width: 1024px) {
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-}
-</code></pre>
-      
-      <h4>Responsive Typography</h4>
-      <p>Text should be readable across all devices without requiring zoom. Consider these techniques:</p>
-      <ul>
-        <li>Use relative units (em, rem) instead of pixels</li>
-        <li>Set a reasonable base font size (typically 16px)</li>
-        <li>Implement a fluid type scale that adjusts based on viewport width</li>
-      </ul>
-      
-      <pre><code>html {
-  font-size: 16px;
-}
-
-h1 {
-  /* Fluid typography that scales between 1.8rem and 3rem */
-  font-size: clamp(1.8rem, 5vw, 3rem);
-}
-</code></pre>
-      
-      <h4>Flexible Images</h4>
-      <p>Images should never cause horizontal scrolling or overflow their containers:</p>
-      
-      <pre><code>img {
-  max-width: 100%;
-  height: auto;
-}
-</code></pre>
-      
-      <h4>CSS Grid and Flexbox</h4>
-      <p>Modern layout tools like CSS Grid and Flexbox have made responsive layouts much easier to implement:</p>
-      
-      <pre><code>/* Basic responsive grid */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-</code></pre>
-      
-      <h4>Testing Across Devices</h4>
-      <p>Always test your responsive designs on actual devices when possible, not just using browser dev tools. Pay attention to:</p>
-      <ul>
-        <li>Touch targets (buttons, links) should be at least 44×44px</li>
-        <li>Font sizes should be comfortable to read without zooming</li>
-        <li>Layouts should accommodate different aspect ratios</li>
-        <li>Performance considerations for less powerful devices</li>
-      </ul>
-      
-      <p>By applying these responsive design principles consistently, you'll create websites that provide an optimal viewing experience across the wide range of devices used today.</p>
-    `
-  },
-  {
-    id: 3,
-    title: "The Complete Guide to CSS Flexbox",
-    category: "webdev",
-    date: "August 12, 2023",
-    excerpt: "Flexbox has revolutionized CSS layouts. This comprehensive guide covers everything you need to know to master this powerful layout system.",
-    content: `
-      <p>Flexbox has revolutionized CSS layouts by providing a more efficient way to arrange, align, and distribute space among elements. This guide will help you master this powerful layout system.</p>
-      
-      <h4>What is Flexbox?</h4>
-      <p>Flexbox (Flexible Box Module) is a one-dimensional layout method designed for arranging items in rows or columns. It excels at distributing space and aligning items within a container, even when their size is unknown or dynamic.</p>
-      
-      <h4>Basic Concepts</h4>
-      <p>There are two key components in the flexbox model:</p>
-      <ul>
-        <li><strong>Flex Container:</strong> The parent element with <code>display: flex</code> applied</li>
-        <li><strong>Flex Items:</strong> The direct children of the flex container</li>
-      </ul>
-      
-      <pre><code>.container {
-  display: flex;
-  /* or */
-  display: inline-flex;
-}
-</code></pre>
-      
-      <h4>Flex Container Properties</h4>
-      
-      <h5>1. flex-direction</h5>
-      <p>Establishes the main axis of the container, defining the direction flex items are placed.</p>
-      <pre><code>.container {
-  flex-direction: row; /* default - left to right */
-  /* alternatives */
-  flex-direction: row-reverse; /* right to left */
-  flex-direction: column; /* top to bottom */
-  flex-direction: column-reverse; /* bottom to top */
-}
-</code></pre>
-      
-      <h5>2. flex-wrap</h5>
-      <p>Controls whether items should wrap onto multiple lines or not.</p>
-      <pre><code>.container {
-  flex-wrap: nowrap; /* default - single line */
-  /* alternatives */
-  flex-wrap: wrap; /* multiple lines */
-  flex-wrap: wrap-reverse; /* multiple lines, reversed */
-}
-</code></pre>
-      
-      <h5>3. justify-content</h5>
-      <p>Defines alignment along the main axis (distributes extra space).</p>
-      <pre><code>.container {
-  justify-content: flex-start; /* default */
-  /* alternatives */
-  justify-content: flex-end;
-  justify-content: center;
-  justify-content: space-between;
-  justify-content: space-around;
-  justify-content: space-evenly;
-}
-</code></pre>
-      
-      <h5>4. align-items</h5>
-      <p>Defines alignment along the cross axis (perpendicular to main axis).</p>
-      <pre><code>.container {
-  align-items: stretch; /* default */
-  /* alternatives */
-  align-items: flex-start;
-  align-items: flex-end;
-  align-items: center;
-  align-items: baseline;
-}
-</code></pre>
-      
-      <h4>Flex Item Properties</h4>
-      
-      <h5>1. flex-grow</h5>
-      <p>Determines how much an item should grow relative to others if extra space is available.</p>
-      <pre><code>.item {
-  flex-grow: 0; /* default - do not grow */
-  /* Example: item with flex-grow: 2 grows twice as much as items with flex-grow: 1 */
-}
-</code></pre>
-      
-      <h5>2. flex-shrink</h5>
-      <p>Defines how much an item will shrink relative to others when there's not enough space.</p>
-      <pre><code>.item {
-  flex-shrink: 1; /* default - items shrink if needed */
-  /* higher values shrink faster */
-}
-</code></pre>
-      
-      <h5>3. flex-basis</h5>
-      <p>Sets the initial main size of a flex item before growing or shrinking.</p>
-      <pre><code>.item {
-  flex-basis: auto; /* default - respects width/height */
-  /* can be set in px, %, em, etc. */
-}
-</code></pre>
-      
-      <h5>4. The flex shorthand</h5>
-      <p>Combines flex-grow, flex-shrink, and flex-basis in one declaration.</p>
-      <pre><code>.item {
-  flex: 0 1 auto; /* default (flex-grow, flex-shrink, flex-basis) */
-  /* common patterns */
-  flex: 1; /* same as flex: 1 1 0% - grow and shrink equally */
-  flex: auto; /* same as flex: 1 1 auto */
-  flex: none; /* same as flex: 0 0 auto - fully inflexible */
-}
-</code></pre>
-      
-      <h4>Practical Applications</h4>
-      <p>Flexbox is perfect for:</p>
-      <ul>
-        <li>Navigation bars and menus</li>
-        <li>Card layouts with equal heights</li>
-        <li>Centering elements vertically and horizontally</li>
-        <li>Creating responsive form layouts</li>
-        <li>Building simple grid systems</li>
-      </ul>
-      
-      <p>By mastering flexbox, you can create complex layouts with cleaner and more manageable code. It's become an essential tool in modern web development, especially when combined with CSS Grid for two-dimensional layouts.</p>
-    `
-  },
-  {
-    id: 4,
-    title: "How I Landed My First Developer Job",
-    category: "career",
-    date: "July 5, 2023",
-    excerpt: "Breaking into the tech industry can be challenging. Here's my personal journey from self-taught programmer to professional web developer, with practical advice for newcomers.",
-    content: `
-      <p>Breaking into the tech industry can be challenging, especially without a traditional computer science background. Here's my personal journey from self-taught programmer to professional web developer, with practical advice for newcomers.</p>
-      
-      <h4>My Background</h4>
-      <p>Before transitioning to tech, I worked in marketing for three years. While I enjoyed certain aspects of my job, I found myself increasingly drawn to the technical side of our projects. I started learning HTML and CSS to help with our company website, and soon discovered that I genuinely enjoyed coding.</p>
-      
-      <h4>The Learning Phase</h4>
-      <p>My learning journey wasn't linear, but here's what worked for me:</p>
-      
-      <h5>1. Structured Learning</h5>
-      <p>I started with free resources like freeCodeCamp and The Odin Project to build a foundation. This gave me structure and a clear learning path.</p>
-      
-      <h5>2. Project-Based Learning</h5>
-      <p>Theory alone wasn't enough. I challenged myself to build projects that solved real problems:</p>
-      <ul>
-        <li>A personal portfolio website</li>
-        <li>A recipe organizer for my own use</li>
-        <li>A simple budget tracking app</li>
-      </ul>
-      <p>Each project taught me more than any tutorial could.</p>
-      
-      <h5>3. Learning in Public</h5>
-      <p>I shared my journey on Twitter and GitHub, which helped me connect with other developers and stay accountable. Getting feedback from more experienced developers was invaluable.</p>
-      
-      <h4>Building a Portfolio</h4>
-      <p>My portfolio was crucial in landing interviews. I focused on quality over quantity, ensuring each project demonstrated:</p>
-      <ul>
-        <li>Clean, well-documented code</li>
-        <li>Thoughtful UI/UX considerations</li>
-        <li>Problem-solving skills</li>
-        <li>Technical versatility</li>
-      </ul>
-      
-      <p>I also wrote detailed READMEs explaining my design decisions, challenges faced, and how I overcame them.</p>
-      
-      <h4>The Job Hunt</h4>
-      <p>After about 8 months of consistent learning, I felt ready to apply for jobs. Here's what my process looked like:</p>
-      
-      <h5>1. Resume Tailoring</h5>
-      <p>I customized my resume for each application, emphasizing relevant skills and projects. I framed my previous marketing experience in terms of transferable skills like communication, user empathy, and project management.</p>
-      
-      <h5>2. Job Search Strategy</h5>
-      <p>Rather than applying to hundreds of positions, I focused on:</p>
-      <ul>
-        <li>Small to medium-sized companies where I could make a direct impact</li>
-        <li>Startups open to non-traditional backgrounds</li>
-        <li>Companies with values that aligned with mine</li>
-      </ul>
-      
-      <h5>3. Networking</h5>
-      <p>Local meetups and tech events were incredibly helpful. I met my future team lead at a JavaScript meetup where I had volunteered to help organize.</p>
-      
-      <h4>The Interview Process</h4>
-      <p>After submitting 42 applications, I received 8 interview requests. Most processes involved:</p>
-      <ol>
-        <li>An initial screening call</li>
-        <li>A technical assessment or take-home project</li>
-        <li>A technical interview with senior developers</li>
-        <li>A final interview with the broader team</li>
-      </ol>
-      
-      <p>The take-home project for my current company involved building a small web app that consumed an API. I spent extra time making it polished and accessible, which made a strong impression.</p>
-      
-      <h4>Key Lessons Learned</h4>
-      <ul>
-        <li><strong>Build in public:</strong> Sharing your work creates opportunities.</li>
-        <li><strong>Focus on fundamentals:</strong> Deep understanding of core concepts is more valuable than surface-level knowledge of many frameworks.</li>
-        <li><strong>Embrace the struggle:</strong> Document challenges and how you overcame them—this shows problem-solving abilities.</li>
-        <li><strong>Communicate effectively:</strong> Technical skills alone aren't enough; employers want people who can explain complex concepts clearly.</li>
-        <li><strong>Be authentic:</strong> In interviews, I was honest about what I knew and what I was still learning.</li>
-      </ul>
-      
-      <h4>Final Thoughts</h4>
-      <p>Landing your first dev job is challenging, but absolutely possible with persistence and strategic effort. The journey doesn't end with that first job—in many ways, it's just beginning. Continuous learning remains essential, but now I have the benefit of supportive colleagues and real-world problems to solve.</p>
-      
-      <p>If you're currently on this journey, remember that everyone starts somewhere, and the tech industry needs diverse perspectives and backgrounds. Your unique path can be an asset rather than a liability.</p>
-    `
-  },
-  {
-    id: 5,
-    title: "Understanding React Hooks",
-    category: "javascript",
-    date: "June 18, 2023",
-    excerpt: "React Hooks revolutionized how we build components. Learn how to use the most important hooks and create your own custom hooks to simplify your React applications.",
-    content: `
-      <p>React Hooks revolutionized how we build React components when they were introduced in React 16.8. They allow you to use state and other React features without writing a class component. Let's explore how to use the most important hooks and create custom hooks to simplify your React applications.</p>
-      
-      <h4>Why Hooks?</h4>
-      <p>Before hooks, complex logic often required class components, leading to several challenges:</p>
-      <ul>
-        <li>Stateful logic was difficult to reuse between components</li>
-        <li>Complex components became hard to understand</li>
-        <li>Classes can be confusing with 'this' binding and lifecycle methods</li>
-      </ul>
-      
-      <p>Hooks solve these problems by allowing you to:</p>
-      <ul>
-        <li>Reuse stateful logic without changing your component hierarchy</li>
-        <li>Split one component into smaller functions based on related pieces</li>
-        <li>Use React features without classes</li>
-      </ul>
-      
-      <h4>Essential Built-in Hooks</h4>
-      
-      <h5>1. useState</h5>
-      <p>The useState hook lets you add state to functional components:</p>
-      <pre><code>import React, { useState } from 'react';
-
-function Counter() {
-  // Declare a state variable 'count' with initial value 0
-  const [count, setCount] = useState(0);
-  
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
-</code></pre>
-      
-      <h5>2. useEffect</h5>
-      <p>The useEffect hook handles side effects in functional components, replacing lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount:</p>
-      <pre><code>import React, { useState, useEffect } from 'react';
-
-function Example() {
-  const [count, setCount] = useState(0);
-
-  // Similar to componentDidMount and componentDidUpdate
-  useEffect(() => {
-    // Update the document title using the browser API
-    document.title = \`You clicked ${count} times\`;
+  setupEventListeners() {
+    // Navigation active state
+    this.updateActiveNavigation();
     
-    // Optional cleanup function (similar to componentWillUnmount)
-    return () => {
-      document.title = 'React App';
-    };
-  }, [count]); // Only re-run if count changes
-  
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
-</code></pre>
-      
-      <h5>3. useContext</h5>
-      <p>The useContext hook provides a way to pass data through the component tree without having to pass props down manually at every level:</p>
-      <pre><code>import React, { useContext } from 'react';
-
-// Create a context
-const ThemeContext = React.createContext('light');
-
-function ThemedButton() {
-  // Use the context
-  const theme = useContext(ThemeContext);
-  
-  return (
-    <button style={{ background: theme === 'dark' ? '#333' : '#fff', 
-                     color: theme === 'dark' ? '#fff' : '#333' }}>
-      I am styled based on the theme context!
-    </button>
-  );
-}
-</code></pre>
-      
-      <h5>4. useReducer</h5>
-      <p>The useReducer hook is an alternative to useState for complex state logic. It's similar to how Redux works:</p>
-      <pre><code>import React, { useReducer } from 'react';
-
-// Reducer function
-function reducer(state, action) {
-  switch (action.type) {
-    case 'increment':
-      return { count: state.count + 1 };
-    case 'decrement':
-      return { count: state.count - 1 };
-    default:
-      throw new Error();
-  }
-}
-
-function Counter() {
-  // Initial state and reducer
-  const [state, dispatch] = useReducer(reducer, { count: 0 });
-  
-  return (
-    <div>
-      Count: {state.count}
-      <button onClick={() => dispatch({type: 'increment'})}>+</button>
-      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-    </div>
-  );
-}
-</code></pre>
-      
-      <h4>Creating Custom Hooks</h4>
-      <p>One of the most powerful features of hooks is the ability to create your own to extract and reuse component logic. A custom hook is a JavaScript function whose name starts with "use" and that may call other hooks.</p>
-      
-      <p>Here's an example of a custom hook for form handling:</p>
-      <pre><code>import { useState } from 'react';
-
-// Custom hook for form handling
-function useForm(initialValues) {
-  const [values, setValues] = useState(initialValues);
-  
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({
-      ...values,
-      [name]: value
-    });
-  };
-  
-  const resetForm = () => {
-    setValues(initialValues);
-  };
-  
-  return {
-    values,
-    handleChange,
-    resetForm
-  };
-}
-
-// Using the custom hook
-function ContactForm() {
-  const { values, handleChange, resetForm } = useForm({
-    name: '',
-    email: '',
-    message: ''
-  });
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted with values:', values);
-    resetForm();
-  };
-  
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        name="name"
-        value={values.name}
-        onChange={handleChange}
-        placeholder="Name"
-      />
-      <input
-        name="email"
-        value={values.email}
-        onChange={handleChange}
-        placeholder="Email"
-      />
-      <textarea
-        name="message"
-        value={values.message}
-        onChange={handleChange}
-        placeholder="Message"
-      />
-      <button type="submit">Submit</button>
-    </form>
-  );
-}
-</code></pre>
-      
-      <h4>Rules of Hooks</h4>
-      <p>To ensure hooks work correctly, follow these two rules:</p>
-      <ol>
-        <li><strong>Only call hooks at the top level.</strong> Don't call hooks inside loops, conditions, or nested functions.</li>
-        <li><strong>Only call hooks from React function components or custom hooks.</strong> Don't call hooks from regular JavaScript functions.</li>
-      </ol>
-      
-      <h4>Conclusion</h4>
-      <p>React Hooks provide a more direct way to use React's features and create reusable, composable logic. They dramatically simplify code, making it more readable and maintainable while reducing the overall complexity of your React applications.</p>
-      
-      <p>By mastering built-in hooks and creating your own custom hooks, you can write more elegant, efficient React code that's easier to test and maintain.</p>
-    `
-  },
-  {
-    id: 6,
-    title: "Designing Better User Interfaces",
-    category: "webdev",
-    date: "May 10, 2023",
-    excerpt: "Good UI design goes beyond aesthetics. Learn the key principles of effective user interface design and how to apply them to create more intuitive, accessible experiences.",
-    content: `
-      <p>Good UI design goes beyond aesthetics—it's about creating interfaces that are intuitive, accessible, and help users achieve their goals efficiently. Let's explore the key principles of effective user interface design and how to apply them in your projects.</p>
-      
-      <h4>1. Clarity is King</h4>
-      <p>The most important principle of UI design is clarity. Users should instantly understand what they can do and how to do it.</p>
-      
-      <h5>Design Tips:</h5>
-      <ul>
-        <li>Use clear, descriptive labels for buttons and links</li>
-        <li>Create visual hierarchies that guide users to important elements first</li>
-        <li>Eliminate unnecessary elements that don't support user tasks</li>
-        <li>Use familiar patterns that users already understand</li>
-      </ul>
-      
-      <p>When users have to think too hard about how to use your interface, you've already failed. As Steve Krug famously said, "Don't make me think!"</p>
-      
-      <h4>2. Consistency Creates Comfort</h4>
-      <p>Consistent interfaces are easier to use because they reduce the learning curve as users move through your application.</p>
-      
-      <h5>Design Tips:</h5>
-      <ul>
-        <li>Maintain consistent visual language (colors, typography, spacing)</li>
-        <li>Use the same interactions for similar functions</li>
-        <li>Create and follow a design system or component library</li>
-        <li>Follow platform conventions when appropriate</li>
-      </ul>
-      
-      <p>Consistency doesn't mean boring—it means creating a reliable system that users can learn once and apply throughout their experience.</p>
-      
-      <h4>3. Provide Feedback for Actions</h4>
-      <p>Users need to know that their actions have been recognized and processed by the system.</p>
-      
-      <h5>Design Tips:</h5>
-      <ul>
-        <li>Use visual feedback for interactive elements (hover/active states)</li>
-        <li>Acknowledge form submissions and other important actions</li>
-        <li>Show progress indicators for operations that take time</li>
-        <li>Communicate errors clearly with actionable solutions</li>
-      </ul>
-      
-      <pre><code>.button {
-  background-color: #4a90e2;
-  transition: background-color 0.2s;
-}
-
-.button:hover {
-  background-color: #3a80d2; /* Darker shade for feedback */
-}
-
-.button:active {
-  background-color: #2a70c2; /* Even darker when clicked */
-}
-
-.button.loading {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-</code></pre>
-      
-      <h4>4. Design for Accessibility</h4>
-      <p>Good UI design is accessible to all users, including those with disabilities.</p>
-      
-      <h5>Design Tips:</h5>
-      <ul>
-        <li>Maintain sufficient color contrast (WCAG AA minimum)</li>
-        <li>Don't rely solely on color to convey information</li>
-        <li>Ensure keyboard navigability for all interactive elements</li>
-        <li>Support screen readers with appropriate ARIA attributes</li>
-        <li>Create focus states that are clearly visible</li>
-      </ul>
-      
-      <pre><code>/* Good focus state example */
-button:focus {
-  outline: 2px solid #4a90e2;
-  outline-offset: 2px;
-}
-
-/* Color contrast example */
-.text-on-dark {
-  color: #f0f0f0; /* Light text */
-  background-color: #333333; /* Dark background */
-  /* This provides a 13.4:1 contrast ratio, well above WCAG AAA */
-}
-</code></pre>
-      
-      <h4>5. Reduce Cognitive Load</h4>
-      <p>The best interfaces reduce the mental effort required to use them.</p>
-      
-      <h5>Design Tips:</h5>
-      <ul>
-        <li>Break complex tasks into manageable steps</li>
-        <li>Use progressive disclosure to reveal information as needed</li>
-        <li>Provide defaults that make sense for most users</li>
-        <li>Minimize the number of options shown at once</li>
-        <li>Group related information visually</li>
-      </ul>
-      
-      <p>Remember Miller's Law: the average person can hold only about 7 (plus or minus 2) items in their working memory at once.</p>
-      
-      <h4>6. Forgiveness in Design</h4>
-      <p>Well-designed interfaces forgive mistakes and allow users to easily recover.</p>
-      
-      <h5>Design Tips:</h5>
-      <ul>
-        <li>Make destructive actions difficult to trigger accidentally</li>
-        <li>Provide undo functionality where possible</li>
-        <li>Ask for confirmation only for significant actions</li>
-        <li>Design clear paths back to previous states</li>
-      </ul>
-      
-      <p>Users should feel safe to explore your interface without fear of making irreversible mistakes.</p>
-      
-      <h4>7. Performance is a Feature</h4>
-      <p>Speed is a critical aspect of good UI design. Slow interfaces frustrate users and reduce engagement.</p>
-      
-      <h5>Design Tips:</h5>
-      <ul>
-        <li>Optimize images and assets for quick loading</li>
-        <li>Use skeleton screens or loaders for content that takes time to load</li>
-        <li>Apply lazy loading for offscreen content</li>
-        <li>Consider perceived performance through visual design</li>
-      </ul>
-      
-      <p>Studies show that users perceive interfaces as less usable when they're slow, regardless of how well-designed they are otherwise.</p>
-      
-      <h4>8. Mobile-First Thinking</h4>
-      <p>With most web traffic coming from mobile devices, designing for small screens first forces you to focus on what's essential.</p>
-      
-      <h5>Design Tips:</h5>
-      <ul>
-        <li>Prioritize content and features based on user needs</li>
-        <li>Design touch-friendly interfaces (target size minimum 44×44px)</li>
-        <li>Consider thumb zones for important actions</li>
-        <li>Test on actual devices, not just emulators</li>
-      </ul>
-      
-      <p>Designing for constraints first makes it easier to enhance the experience for larger screens later.</p>
-      
-      <h4>Conclusion</h4>
-      <p>Great UI design isn't about following trends or creating flashy interfaces—it's about deeply understanding your users and creating experiences that help them accomplish their goals with minimum friction.</p>
-      
-      <p>When designing interfaces, always ask: "Am I making this easier for my users?" If the answer is yes, you're on the right track.</p>
-    `
-  }
-];
-
-// DOM elements and initialization
-document.addEventListener('DOMContentLoaded', function() {
-  // Theme toggle functionality
-  initThemeToggle();
-  
-  // Page-specific initialization
-  const currentPage = getCurrentPage();
-  
-  if (currentPage === 'blog.html') {
-    displayBlogPosts(blogPosts);
-    initializeBlogFilters();
-    initializeSearchFunctionality();
-    addReadMoreListeners();
-  } else if (currentPage === 'projects.html') {
-    initializeProjectFilters();
-  } else if (currentPage === 'contact.html') {
-    initializeContactForm();
-  }
-  
-  // Fix console errors related to React content in blog posts
-  fixReactCodeExamples();
-});
-
-// Helper function to get current page
-function getCurrentPage() {
-  const path = window.location.pathname;
-  const page = path.split('/').pop();
-  return page || 'index.html';
-}
-
-// Theme toggle functionality is now in separate theme.js file
-function initThemeToggle() {
-  // This function is now empty as theme toggle is handled in theme.js
-  // This is just kept here for compatibility
-}
-
-// Blog post display function
-function displayBlogPosts(posts, category = 'all') {
-  const blogContainer = document.getElementById('blog-posts');
-  const template = document.getElementById('blog-post-template');
-  
-  if (!blogContainer || !template) return;
-  
-  // Clear existing content
-  blogContainer.innerHTML = '';
-  
-  // Filter posts by category if needed
-  const filteredPosts = category === 'all' 
-    ? posts 
-    : posts.filter(post => post.category === category);
-  
-  // Display "no results" message if no posts match
-  if (filteredPosts.length === 0) {
-    blogContainer.innerHTML = '<div class="no-results">No posts found matching your criteria.</div>';
-    return;
-  }
-  
-  // Create and append blog post elements
-  filteredPosts.forEach(post => {
-    const blogPost = document.createElement('article');
-    blogPost.className = 'blog-post';
-    blogPost.setAttribute('data-id', post.id);
-    blogPost.setAttribute('data-category', post.category);
-    
-    // Create blog header with category
-    const header = document.createElement('div');
-    header.className = 'blog-header';
-    header.textContent = getCategoryIcon(post.category);
-    
-    const categorySpan = document.createElement('div');
-    categorySpan.className = 'blog-category';
-    categorySpan.textContent = post.category.charAt(0).toUpperCase() + post.category.slice(1);
-    header.appendChild(categorySpan);
-    
-    // Create blog content
-    const content = document.createElement('div');
-    content.className = 'blog-content';
-    
-    const title = document.createElement('h3');
-    title.className = 'blog-title';
-    title.textContent = post.title;
-    
-    const date = document.createElement('span');
-    date.className = 'blog-date';
-    date.textContent = post.date;
-    
-    const excerpt = document.createElement('div');
-    excerpt.className = 'blog-excerpt';
-    excerpt.textContent = post.excerpt;
-    
-    const fullContent = document.createElement('div');
-    fullContent.className = 'blog-full-content';
-    fullContent.innerHTML = post.content;
-    
-    const readMoreBtn = document.createElement('button');
-    readMoreBtn.className = 'btn read-more';
-    readMoreBtn.textContent = 'Read More';
-    
-    const readLessBtn = document.createElement('button');
-    readLessBtn.className = 'btn read-less';
-    readLessBtn.textContent = 'Show Less';
-    
-    // Assemble the content
-    content.appendChild(title);
-    content.appendChild(date);
-    content.appendChild(excerpt);
-    content.appendChild(fullContent);
-    content.appendChild(readMoreBtn);
-    content.appendChild(readLessBtn);
-    
-    // Build the complete post
-    blogPost.appendChild(header);
-    blogPost.appendChild(content);
-    
-    // Add to container
-    blogContainer.appendChild(blogPost);
-  });
-  
-  // Add event listeners to the newly created elements
-  addReadMoreListeners();
-}
-
-// Get category icon/emoji for blog posts
-function getCategoryIcon(category) {
-  switch(category) {
-    case 'javascript':
-      return 'JS';
-    case 'webdev':
-      return '🌐';
-    case 'career':
-      return '💼';
-    default:
-      return '📝';
-  }
-}
-
-// Initialize blog filters
-function initializeBlogFilters() {
-  const filterButtons = document.querySelectorAll('.blog-filters .filter-btn');
-  
-  if (!filterButtons.length) return;
-  
-  filterButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      // Remove active class from all buttons
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      
-      // Add active class to clicked button
-      this.classList.add('active');
-      
-      // Get selected category
-      const category = this.getAttribute('data-category');
-      
-      // Filter and display posts
-      displayBlogPosts(blogPosts, category);
-    });
-  });
-}
-
-// Initialize project filters
-function initializeProjectFilters() {
-  const filterButtons = document.querySelectorAll('.project-filters .filter-btn');
-  const projects = document.querySelectorAll('.project');
-  
-  if (!filterButtons.length || !projects.length) return;
-  
-  filterButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      // Remove active class from all buttons
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      
-      // Add active class to clicked button
-      this.classList.add('active');
-      
-      // Get selected category
-      const category = this.getAttribute('data-category');
-      
-      // Show/hide projects based on category
-      projects.forEach(project => {
-        if (category === 'all' || project.getAttribute('data-category').includes(category)) {
-          project.style.display = 'flex';
-        } else {
-          project.style.display = 'none';
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
       });
     });
-  });
-}
 
-// Blog search functionality
-function initializeSearchFunctionality() {
-  const searchInput = document.getElementById('blog-search-input');
-  const searchButton = document.getElementById('blog-search-btn');
-  
-  if (!searchInput || !searchButton) return;
-  
-  const searchBlog = () => {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    
-    if (searchTerm === '') {
-      // If search is empty, show all posts
-      displayBlogPosts(blogPosts);
-      return;
-    }
-    
-    // Filter posts based on search term
-    const filteredPosts = blogPosts.filter(post => 
-      post.title.toLowerCase().includes(searchTerm) || 
-      post.excerpt.toLowerCase().includes(searchTerm) ||
-      post.content.toLowerCase().includes(searchTerm)
-    );
-    
-    // Display filtered posts
-    displayBlogPosts(filteredPosts);
-  };
-  
-  // Search on button click
-  searchButton.addEventListener('click', searchBlog);
-  
-  // Search on Enter key
-  searchInput.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-      searchBlog();
-    }
-  });
-}
-
-// Add read more/less functionality to blog posts
-function addReadMoreListeners() {
-  const readMoreButtons = document.querySelectorAll('.read-more');
-  const readLessButtons = document.querySelectorAll('.read-less');
-  
-  readMoreButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const blogPost = this.closest('.blog-post');
-      blogPost.classList.add('expanded');
+    // Window scroll events
+    window.addEventListener('scroll', () => {
+      this.handleScroll();
     });
-  });
-  
-  readLessButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const blogPost = this.closest('.blog-post');
-      blogPost.classList.remove('expanded');
+
+    // Window resize events
+    window.addEventListener('resize', () => {
+      this.handleResize();
+    });
+  }
+
+  setupMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileToggle.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      // Close mobile menu when clicking on nav links
+      navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          mobileToggle.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  }
+
+  setupProjectFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filter projects
+        projectCards.forEach(card => {
+          const cardCategories = card.getAttribute('data-category') || '';
+          const shouldShow = category === 'all' || cardCategories.includes(category);
+          
+          if (shouldShow) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeInUp 0.5s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  setupBlogFunctionality() {
+    this.setupBlogFilters();
+    this.setupBlogSearch();
+    this.setupBlogActions();
+    this.setupLoadMore();
+  }
+
+  setupBlogFilters() {
+    const filterButtons = document.querySelectorAll('.blog-filters .filter-btn');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filter blog posts
+        this.filterBlogPosts(category);
+      });
+    });
+  }
+
+  setupBlogSearch() {
+    const searchInput = document.getElementById('blog-search-input');
+    const searchBtn = document.getElementById('blog-search-btn');
+
+    if (searchInput) {
+      let searchTimeout;
       
-      // Scroll back to top of post
-      blogPost.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-}
+      searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          this.searchBlogPosts(searchInput.value.trim());
+        }, 300);
+      });
 
-// Contact form initialization
-function initializeContactForm() {
-  const contactForm = document.getElementById('contact-form');
-  const formStatus = document.getElementById('form-status');
-  
-  if (!contactForm || !formStatus) return;
-  
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      subject: document.getElementById('subject').value,
-      message: document.getElementById('message').value
+      if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+          this.searchBlogPosts(searchInput.value.trim());
+        });
+      }
+    }
+  }
+
+  setupBlogActions() {
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('read-more')) {
+        this.expandBlogPost(e.target);
+      } else if (e.target.classList.contains('read-less')) {
+        this.collapseBlogPost(e.target);
+      } else if (e.target.closest('.share-btn')) {
+        this.shareBlogPost(e.target.closest('.share-btn'));
+      }
+    });
+  }
+
+  setupLoadMore() {
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        this.loadMoreBlogPosts();
+      });
+    }
+  }
+
+  setupContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.handleContactSubmission(contactForm);
+      });
+
+      // Real-time validation
+      const inputs = contactForm.querySelectorAll('input, textarea, select');
+      inputs.forEach(input => {
+        input.addEventListener('blur', () => {
+          this.validateField(input);
+        });
+      });
+    }
+  }
+
+  setupModals() {
+    // Modal triggers
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal-trigger')) {
+        e.preventDefault();
+        const modalId = e.target.getAttribute('href');
+        this.openModal(modalId);
+      } else if (e.target.classList.contains('modal-close') || e.target.classList.contains('modal')) {
+        this.closeModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.closeModal();
+      }
+    });
+  }
+
+  setupScrollEffects() {
+    // Parallax effect for hero section
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        heroSection.style.transform = `translateY(${rate}px)`;
+      });
+    }
+
+    // Intersection Observer for animations
+    this.setupIntersectionObserver();
+  }
+
+  setupIntersectionObserver() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
     };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          
+          // Special handling for skill bars
+          if (entry.target.classList.contains('skill-item')) {
+            this.animateSkillBar(entry.target);
+          }
+          
+          // Special handling for counters
+          if (entry.target.classList.contains('metric-value')) {
+            this.animateCounter(entry.target);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.card, .project-card, .blog-card, .skill-item, .metric-card, .approach-item, .timeline-item');
+    animateElements.forEach(el => observer.observe(el));
+  }
+
+  setupAnimations() {
+    // Add CSS for animations
+    const style = document.createElement('style');
+    style.textContent = `
+      .animate-in {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  setupLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.remove('lazy');
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+  }
+
+  // Blog functionality
+  loadBlogPosts() {
+    const blogContainer = document.getElementById('blog-posts');
+    if (!blogContainer) return;
+
+    const blogPosts = this.getBlogPostsData();
+    this.currentPosts = blogPosts.slice(0, 5);
+    this.allPosts = blogPosts;
+    this.filteredPosts = blogPosts;
+
+    this.renderBlogPosts(this.currentPosts);
+  }
+
+  getBlogPostsData() {
+    return [
+      {
+        id: 1,
+        title: "Modern Hacking Lab: AI-Powered Security Testing",
+        category: "ai",
+        date: "2025-01-15",
+        readTime: "8 min",
+        excerpt: "Exploring how artificial intelligence is revolutionizing cybersecurity testing and defense mechanisms in today's digital landscape.",
+        content: `
+          <p>Artificial intelligence is transforming the cybersecurity landscape, offering unprecedented capabilities for both defensive and offensive security operations. In this comprehensive guide, we'll explore how AI is being integrated into modern penetration testing and security assessment workflows.</p>
+          
+          <h3>The Evolution of AI in Cybersecurity</h3>
+          <p>Traditional security testing relied heavily on manual processes and signature-based detection systems. While effective, these approaches struggled to keep pace with the rapidly evolving threat landscape. AI introduces several key advantages:</p>
+          
+          <ul>
+            <li><strong>Pattern Recognition:</strong> AI can identify complex patterns in network traffic and system behavior that might indicate security threats.</li>
+            <li><strong>Automated Analysis:</strong> Machine learning algorithms can process vast amounts of security data in real-time.</li>
+            <li><strong>Predictive Capabilities:</strong> AI can anticipate potential attack vectors based on historical data and current trends.</li>
+            <li><strong>Adaptive Learning:</strong> Systems can evolve and improve their detection capabilities over time.</li>
+          </ul>
+          
+          <h3>Building an AI-Powered Security Lab</h3>
+          <p>Setting up a modern security testing environment requires careful consideration of both hardware and software components. Here's what you need:</p>
+          
+          <h4>Hardware Requirements</h4>
+          <ul>
+            <li>High-performance GPU for machine learning workloads</li>
+            <li>Sufficient RAM (32GB minimum for serious ML work)</li>
+            <li>Fast SSD storage for large datasets</li>
+            <li>Dedicated network interfaces for isolated testing</li>
+          </ul>
+          
+          <h4>Software Stack</h4>
+          <ul>
+            <li>TensorFlow or PyTorch for deep learning</li>
+            <li>Scikit-learn for traditional machine learning</li>
+            <li>Kali Linux with custom AI security tools</li>
+            <li>Docker for containerized environments</li>
+          </ul>
+          
+          <h3>AI-Enhanced Penetration Testing</h3>
+          <p>AI can significantly enhance traditional penetration testing methodologies:</p>
+          
+          <h4>Automated Reconnaissance</h4>
+          <p>AI-powered tools can automatically gather and analyze information about target systems, identifying potential entry points and vulnerabilities much faster than manual methods.</p>
+          
+          <h4>Intelligent Vulnerability Assessment</h4>
+          <p>Machine learning algorithms can prioritize vulnerabilities based on exploitability, impact, and environmental factors, helping security teams focus on the most critical issues.</p>
+          
+          <h4>Dynamic Exploit Generation</h4>
+          <p>Advanced AI systems can generate custom exploits based on discovered vulnerabilities, adapting their approach based on target system responses.</p>
+          
+          <h3>Practical Implementation</h3>
+          <p>To implement AI in your security testing workflow, start with these steps:</p>
+          
+          <ol>
+            <li>Collect and curate quality training data from your security operations</li>
+            <li>Start with proven ML models for common security tasks</li>
+            <li>Gradually integrate AI tools into existing workflows</li>
+            <li>Continuously monitor and improve model performance</li>
+            <li>Maintain human oversight for critical decisions</li>
+          </ol>
+          
+          <h3>Challenges and Considerations</h3>
+          <p>While AI offers significant advantages, there are important challenges to consider:</p>
+          
+          <ul>
+            <li><strong>False Positives:</strong> AI systems may generate false alarms that require human verification</li>
+            <li><strong>Adversarial Attacks:</strong> Attackers may try to poison training data or evade AI detection</li>
+            <li><strong>Ethical Concerns:</strong> Automated attack tools raise questions about responsible disclosure and testing boundaries</li>
+            <li><strong>Skill Requirements:</strong> Teams need both cybersecurity and AI/ML expertise</li>
+          </ul>
+          
+          <h3>Future Directions</h3>
+          <p>The future of AI in cybersecurity looks promising, with emerging technologies like:</p>
+          
+          <ul>
+            <li>Federated learning for collaborative threat intelligence</li>
+            <li>Quantum-resistant AI algorithms</li>
+            <li>Autonomous security response systems</li>
+            <li>AI-powered threat hunting platforms</li>
+          </ul>
+          
+          <p>As these technologies mature, we can expect to see even more sophisticated AI-powered security tools that can adapt to new threats in real-time and provide more accurate risk assessments.</p>
+          
+          <h3>Conclusion</h3>
+          <p>AI represents a significant leap forward in cybersecurity capabilities, but it's not a silver bullet. The most effective approach combines AI automation with human expertise, creating a powerful synergy that can tackle the complex security challenges of our digital age.</p>
+        `,
+        tags: ["AI", "Machine Learning", "Penetration Testing", "Cybersecurity"]
+      },
+      {
+        id: 2,
+        title: "Building AI Tools for Digital Defense",
+        category: "tools",
+        date: "2025-01-10",
+        readTime: "12 min",
+        excerpt: "Deep dive into creating machine learning-powered security tools that enhance penetration testing and threat detection capabilities.",
+        content: `
+          <p>Creating effective AI-powered security tools requires a deep understanding of both cybersecurity principles and machine learning techniques. This guide will walk you through the process of building practical AI tools for digital defense.</p>
+          
+          <h3>Understanding the Security-AI Intersection</h3>
+          <p>Before diving into tool development, it's crucial to understand where AI can add the most value in cybersecurity operations:</p>
+          
+          <ul>
+            <li><strong>Anomaly Detection:</strong> Identifying unusual patterns in network traffic or system behavior</li>
+            <li><strong>Malware Classification:</strong> Automatically categorizing and analyzing malicious software</li>
+            <li><strong>Vulnerability Assessment:</strong> Prioritizing and scoring security vulnerabilities</li>
+            <li><strong>Threat Intelligence:</strong> Processing and correlating threat data from multiple sources</li>
+          </ul>
+          
+          <h3>Tool Development Framework</h3>
+          <p>A systematic approach to building AI security tools involves several key phases:</p>
+          
+          <h4>1. Problem Definition</h4>
+          <p>Clearly define the security problem you're trying to solve. Consider:</p>
+          <ul>
+            <li>Current manual processes that could be automated</li>
+            <li>Data availability and quality</li>
+            <li>Performance requirements and constraints</li>
+            <li>Integration with existing security infrastructure</li>
+          </ul>
+          
+          <h4>2. Data Collection and Preprocessing</h4>
+          <p>Quality data is the foundation of effective AI tools. Focus on:</p>
+          <ul>
+            <li>Collecting representative samples of normal and malicious activity</li>
+            <li>Ensuring data privacy and compliance requirements</li>
+            <li>Implementing proper data cleaning and normalization</li>
+            <li>Creating balanced datasets for training</li>
+          </ul>
+          
+          <h4>3. Model Selection and Training</h4>
+          <p>Choose appropriate ML algorithms based on your problem type:</p>
+          <ul>
+            <li><strong>Classification:</strong> Random Forest, SVM, Neural Networks</li>
+            <li><strong>Anomaly Detection:</strong> Isolation Forest, One-Class SVM, Autoencoders</li>
+            <li><strong>Clustering:</strong> K-means, DBSCAN, Hierarchical clustering</li>
+            <li><strong>Time Series:</strong> LSTM, ARIMA, Prophet</li>
+          </ul>
+          
+          <h3>Practical Examples</h3>
+          
+          <h4>Network Intrusion Detection System</h4>
+          <p>Building an AI-powered NIDS involves several components:</p>
+          
+          <pre><code>import pandas as pd
+from sklearn.ensemble import IsolationForest
+from sklearn.preprocessing import StandardScaler
+import numpy as np
+
+class AINetworkMonitor:
+    def __init__(self):
+        self.model = IsolationForest(contamination=0.1)
+        self.scaler = StandardScaler()
+        self.is_trained = False
     
-    // Simple validation
-    if (!formData.name || !formData.email || !formData.message) {
-      formStatus.textContent = 'Please fill out all required fields.';
-      formStatus.className = 'form-status error';
+    def preprocess_traffic(self, network_data):
+        # Extract relevant features from network packets
+        features = [
+            'packet_size', 'protocol', 'src_port', 'dst_port',
+            'flags', 'duration', 'bytes_sent', 'bytes_received'
+        ]
+        return network_data[features]
+    
+    def train(self, normal_traffic):
+        # Train on normal network traffic patterns
+        processed_data = self.preprocess_traffic(normal_traffic)
+        scaled_data = self.scaler.fit_transform(processed_data)
+        self.model.fit(scaled_data)
+        self.is_trained = True
+    
+    def detect_anomalies(self, traffic_data):
+        if not self.is_trained:
+            raise ValueError("Model must be trained first")
+        
+        processed_data = self.preprocess_traffic(traffic_data)
+        scaled_data = self.scaler.transform(processed_data)
+        predictions = self.model.predict(scaled_data)
+        
+        # Return indices of anomalous traffic
+        return np.where(predictions == -1)[0]</code></pre>
+          
+          <h4>Malware Detection Tool</h4>
+          <p>Static analysis combined with machine learning can effectively identify malware:</p>
+          
+          <pre><code>import hashlib
+import pefile
+from sklearn.ensemble import RandomForestClassifier
+import pickle
+
+class MalwareDetector:
+    def __init__(self):
+        self.model = RandomForestClassifier(n_estimators=100)
+        self.feature_extractors = {
+            'file_size': self._extract_file_size,
+            'entropy': self._calculate_entropy,
+            'pe_features': self._extract_pe_features,
+            'string_features': self._extract_strings
+        }
+    
+    def _extract_file_size(self, file_path):
+        import os
+        return os.path.getsize(file_path)
+    
+    def _calculate_entropy(self, file_path):
+        with open(file_path, 'rb') as f:
+            data = f.read()
+        
+        # Calculate Shannon entropy
+        entropy = 0
+        for i in range(256):
+            p = data.count(i) / len(data)
+            if p > 0:
+                entropy -= p * np.log2(p)
+        return entropy
+    
+    def _extract_pe_features(self, file_path):
+        try:
+            pe = pefile.PE(file_path)
+            return {
+                'num_sections': len(pe.sections),
+                'num_imports': len(pe.DIRECTORY_ENTRY_IMPORT) if hasattr(pe, 'DIRECTORY_ENTRY_IMPORT') else 0,
+                'virtual_size': sum(section.Misc_VirtualSize for section in pe.sections)
+            }
+        except:
+            return {'num_sections': 0, 'num_imports': 0, 'virtual_size': 0}
+    
+    def extract_features(self, file_path):
+        features = {}
+        for name, extractor in self.feature_extractors.items():
+            features.update(extractor(file_path))
+        return features
+    
+    def train(self, file_paths, labels):
+        feature_matrix = []
+        for file_path in file_paths:
+            features = self.extract_features(file_path)
+            feature_matrix.append(list(features.values()))
+        
+        self.model.fit(feature_matrix, labels)
+    
+    def predict(self, file_path):
+        features = self.extract_features(file_path)
+        feature_vector = [list(features.values())]
+        return self.model.predict(feature_vector)[0]</code></pre>
+          
+          <h3>Tool Integration and Deployment</h3>
+          <p>Successful AI security tools must integrate seamlessly with existing security infrastructure:</p>
+          
+          <h4>API Development</h4>
+          <p>Create RESTful APIs for easy integration:</p>
+          
+          <pre><code>from flask import Flask, request, jsonify
+import json
+
+app = Flask(__name__)
+detector = MalwareDetector()
+
+@app.route('/analyze', methods=['POST'])
+def analyze_file():
+    try:
+        file_path = request.json['file_path']
+        prediction = detector.predict(file_path)
+        confidence = detector.predict_proba(file_path)[0].max()
+        
+        return jsonify({
+            'status': 'success',
+            'prediction': 'malware' if prediction == 1 else 'clean',
+            'confidence': float(confidence)
+        })
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
+
+if __name__ == '__main__':
+    # Load pre-trained model
+    detector.load_model('trained_model.pkl')
+    app.run(host='0.0.0.0', port=5000)</code></pre>
+          
+          <h3>Performance Optimization</h3>
+          <p>AI security tools must operate in real-time environments. Key optimization strategies include:</p>
+          
+          <ul>
+            <li><strong>Model Compression:</strong> Use techniques like pruning and quantization to reduce model size</li>
+            <li><strong>Caching:</strong> Store frequently accessed results to reduce computation</li>
+            <li><strong>Batch Processing:</strong> Process multiple samples simultaneously for efficiency</li>
+            <li><strong>Hardware Acceleration:</strong> Leverage GPUs for intensive computations</li>
+          </ul>
+          
+          <h3>Monitoring and Maintenance</h3>
+          <p>AI tools require ongoing monitoring and updates:</p>
+          
+          <ul>
+            <li>Track model performance metrics over time</li>
+            <li>Implement automated retraining pipelines</li>
+            <li>Monitor for concept drift and data quality issues</li>
+            <li>Maintain audit logs for compliance and debugging</li>
+          </ul>
+          
+          <h3>Ethical Considerations</h3>
+          <p>When developing AI security tools, consider:</p>
+          
+          <ul>
+            <li>Privacy implications of data collection and analysis</li>
+            <li>Potential for bias in training data and models</li>
+            <li>Responsible disclosure of vulnerabilities discovered by AI</li>
+            <li>Transparency in AI decision-making processes</li>
+          </ul>
+          
+          <h3>Conclusion</h3>
+          <p>Building effective AI tools for digital defense requires a combination of security expertise, machine learning knowledge, and engineering skills. By following systematic development practices and considering real-world deployment challenges, you can create tools that significantly enhance your organization's security posture.</p>
+        `,
+        tags: ["AI Tools", "Machine Learning", "Development", "Security Automation"]
+      },
+      {
+        id: 3,
+        title: "My Cybersecurity Journey: From Curiosity to Professional",
+        category: "career",
+        date: "2024-07-05",
+        readTime: "6 min",
+        excerpt: "My journey into cybersecurity began with curiosity about system vulnerabilities and evolved into a passion for securing digital environments.",
+        content: `
+          <p>My journey into cybersecurity began with a simple question: "How do systems really work, and what happens when they break?" This curiosity, sparked during my early college years, would eventually lead me down a path of discovery, learning, and professional growth in the field of cybersecurity.</p>
+          
+          <h3>The Beginning: First Steps into Security</h3>
+          <p>Like many in the cybersecurity field, my interest started with general computing and programming. I was fascinated by how different technologies worked together to create the digital world around us. But it wasn't until I encountered my first security vulnerability that I truly understood the importance of cybersecurity.</p>
+          
+          <p>During a computer science class, our professor demonstrated a buffer overflow attack. Watching how a few lines of carefully crafted code could completely compromise a system was both terrifying and fascinating. That moment sparked a realization: for every system that exists, there's probably a way to break it, and understanding these weaknesses is crucial for building secure systems.</p>
+          
+          <h3>Learning the Fundamentals</h3>
+          <p>My initial learning was largely self-directed. I spent countless hours reading security blogs, watching conference talks, and experimenting with virtual machines. Some key resources that shaped my early understanding included:</p>
+          
+          <ul>
+            <li><strong>Online Platforms:</strong> TryHackMe and Hack The Box provided hands-on experience in a safe environment</li>
+            <li><strong>Books:</strong> "The Web Application Hacker's Handbook" and "Metasploit: The Penetration Tester's Guide" became my early companions</li>
+            <li><strong>Communities:</strong> Forums like Reddit's r/netsec and local security meetups connected me with like-minded individuals</li>
+            <li><strong>CTF Competitions:</strong> Capture The Flag events challenged me to apply my knowledge in competitive scenarios</li>
+          </ul>
+          
+          <h3>Building Practical Skills</h3>
+          <p>Theory is important, but cybersecurity is fundamentally a practical field. I focused on developing hands-on skills through several approaches:</p>
+          
+          <h4>Home Lab Development</h4>
+          <p>I built a comprehensive home lab using VirtualBox and VMware, creating networks of vulnerable machines to practice on. This included:</p>
+          <ul>
+            <li>Vulnerable VMs like Metasploitable and DVWA</li>
+            <li>Network segmentation to simulate real-world environments</li>
+            <li>Monitoring tools to understand attack patterns</li>
+            <li>Documentation of all activities for future reference</li>
+          </ul>
+          
+          <h4>Programming for Security</h4>
+          <p>I quickly realized that effective cybersecurity professionals need strong programming skills. I focused on languages particularly relevant to security:</p>
+          <ul>
+            <li><strong>Python:</strong> For automation, scripting, and tool development</li>
+            <li><strong>C:</strong> To understand low-level vulnerabilities and system internals</li>
+            <li><strong>JavaScript:</strong> For web application security testing</li>
+            <li><strong>Bash:</strong> For system administration and automation on Linux systems</li>
+          </ul>
+          
+          <h3>Professional Development</h3>
+          <p>As my skills grew, I began seeking opportunities to apply them professionally. This involved several key steps:</p>
+          
+          <h4>Certification Journey</h4>
+          <p>While not required, certifications helped validate my knowledge and provided structured learning paths:</p>
+          <ul>
+            <li>Started with CompTIA Security+ for foundational knowledge</li>
+            <li>Pursued CEH (Certified Ethical Hacker) for penetration testing basics</li>
+            <li>Currently working toward OSCP (Offensive Security Certified Professional)</li>
+          </ul>
+          
+          <h4>Contributing to Open Source</h4>
+          <p>I began contributing to open-source security projects, which helped me:</p>
+          <ul>
+            <li>Learn from experienced developers and security researchers</li>
+            <li>Build a portfolio of publicly visible work</li>
+            <li>Understand how security tools are built and maintained</li>
+            <li>Connect with the broader cybersecurity community</li>
+          </ul>
+          
+          <h3>Key Projects and Milestones</h3>
+          <p>Several projects marked important milestones in my journey:</p>
+          
+          <h4>Automated Penetration Testing Tool</h4>
+          <p>Developing an AI-powered penetration testing framework taught me:</p>
+          <ul>
+            <li>How to integrate machine learning with traditional security testing</li>
+            <li>The importance of automation in handling large-scale assessments</li>
+            <li>Challenges of building user-friendly security tools</li>
+          </ul>
+          
+          <h4>GPU-Accelerated Hash Cracker</h4>
+          <p>Creating a high-performance hash cracking tool provided insights into:</p>
+          <ul>
+            <li>Low-level programming and optimization techniques</li>
+            <li>The mathematics behind cryptographic algorithms</li>
+            <li>Hardware acceleration for security applications</li>
+          </ul>
+          
+          <h3>Challenges and Lessons Learned</h3>
+          <p>The path wasn't always smooth. Some key challenges I faced included:</p>
+          
+          <h4>Information Overload</h4>
+          <p>Cybersecurity is a vast field, and it's easy to feel overwhelmed. I learned to:</p>
+          <ul>
+            <li>Focus on fundamentals before diving into specialized areas</li>
+            <li>Choose depth over breadth in key areas of interest</li>
+            <li>Set realistic learning goals and track progress</li>
+          </ul>
+          
+          <h4>Ethical Considerations</h4>
+          <p>With great power comes great responsibility. Learning about vulnerabilities and attack techniques requires careful consideration of:</p>
+          <ul>
+            <li>Legal boundaries and proper authorization</li>
+            <li>Responsible disclosure of discovered vulnerabilities</li>
+            <li>The potential impact of security research on real systems</li>
+          </ul>
+          
+          <h4>Staying Current</h4>
+          <p>Cybersecurity evolves rapidly. Staying current requires:</p>
+          <ul>
+            <li>Following security researchers and thought leaders</li>
+            <li>Reading security advisories and vulnerability reports</li>
+            <li>Experimenting with new tools and techniques</li>
+            <li>Attending conferences and workshops when possible</li>
+          </ul>
+          
+          <h3>Current Focus and Future Goals</h3>
+          <p>Today, I focus on several key areas:</p>
+          
+          <ul>
+            <li><strong>AI-Enhanced Security:</strong> Exploring how machine learning can improve security operations</li>
+            <li><strong>Tool Development:</strong> Creating practical tools that solve real security problems</li>
+            <li><strong>Knowledge Sharing:</strong> Contributing to the community through blog posts, tutorials, and open-source projects</li>
+            <li><strong>Continuous Learning:</strong> Staying current with emerging threats and defense techniques</li>
+          </ul>
+          
+          <h3>Advice for Aspiring Cybersecurity Professionals</h3>
+          <p>Based on my journey, here's my advice for those starting in cybersecurity:</p>
+          
+          <ol>
+            <li><strong>Start with the Basics:</strong> Build a strong foundation in networking, operating systems, and programming</li>
+            <li><strong>Practice Ethically:</strong> Always use your skills responsibly and within legal boundaries</li>
+            <li><strong>Build a Lab:</strong> Hands-on experience is invaluable; create a safe environment to experiment</li>
+            <li><strong>Join the Community:</strong> Connect with other professionals through forums, meetups, and conferences</li>
+            <li><strong>Stay Curious:</strong> The field evolves rapidly; maintain a mindset of continuous learning</li>
+            <li><strong>Document Everything:</strong> Keep detailed notes of your learning and experiments</li>
+            <li><strong>Focus on Problem-Solving:</strong> Cybersecurity is ultimately about solving complex problems</li>
+          </ol>
+          
+          <h3>Conclusion</h3>
+          <p>My cybersecurity journey has been challenging, rewarding, and continuously evolving. What started as curiosity about how systems work has become a passion for protecting the digital infrastructure that our world depends on. The field offers endless opportunities for learning, growth, and making a real impact on digital security.</p>
+          
+          <p>Every day brings new challenges and opportunities to learn something new. Whether it's understanding a new attack vector, developing a security tool, or helping organizations improve their security posture, the work remains as engaging and important as ever.</p>
+          
+          <p>For those considering a career in cybersecurity, I encourage you to take the first step. Start with curiosity, build your skills methodically, and remember that every expert was once a beginner. The cybersecurity community is generally welcoming and supportive of newcomers who demonstrate genuine interest and ethical behavior.</p>
+        `,
+        tags: ["Career", "Learning", "Cybersecurity Journey", "Professional Development"]
+      }
+    ];
+  }
+
+  renderBlogPosts(posts) {
+    const blogContainer = document.getElementById('blog-posts');
+    if (!blogContainer) return;
+
+    blogContainer.innerHTML = '';
+    
+    posts.forEach(post => {
+      const blogElement = this.createBlogPostElement(post);
+      blogContainer.appendChild(blogElement);
+    });
+  }
+
+  createBlogPostElement(post) {
+    const template = document.getElementById('blog-post-template');
+    if (!template) return document.createElement('div');
+
+    const blogElement = template.content.cloneNode(true);
+    
+    // Populate blog post data
+    blogElement.querySelector('.blog-category').textContent = post.category.toUpperCase();
+    blogElement.querySelector('.blog-date').textContent = this.formatDate(post.date);
+    blogElement.querySelector('.blog-title').textContent = post.title;
+    blogElement.querySelector('.read-time-value').textContent = post.readTime;
+    blogElement.querySelector('.blog-excerpt').textContent = post.excerpt;
+    blogElement.querySelector('.blog-full-content').innerHTML = post.content;
+
+    // Set data attributes
+    const article = blogElement.querySelector('.blog-post');
+    article.setAttribute('data-category', post.category);
+    article.setAttribute('data-id', post.id);
+
+    return blogElement;
+  }
+
+  filterBlogPosts(category) {
+    const blogPosts = document.querySelectorAll('.blog-post');
+    
+    blogPosts.forEach(post => {
+      const postCategory = post.getAttribute('data-category');
+      const shouldShow = category === 'all' || postCategory === category;
+      
+      if (shouldShow) {
+        post.style.display = 'block';
+        post.style.animation = 'fadeInUp 0.5s ease forwards';
+      } else {
+        post.style.display = 'none';
+      }
+    });
+  }
+
+  searchBlogPosts(query) {
+    const blogPosts = document.querySelectorAll('.blog-post');
+    
+    blogPosts.forEach(post => {
+      const title = post.querySelector('.blog-title').textContent.toLowerCase();
+      const excerpt = post.querySelector('.blog-excerpt').textContent.toLowerCase();
+      const content = post.querySelector('.blog-full-content').textContent.toLowerCase();
+      
+      const searchText = `${title} ${excerpt} ${content}`;
+      const shouldShow = query === '' || searchText.includes(query.toLowerCase());
+      
+      if (shouldShow) {
+        post.style.display = 'block';
+        post.style.animation = 'fadeInUp 0.5s ease forwards';
+      } else {
+        post.style.display = 'none';
+      }
+    });
+  }
+
+  expandBlogPost(button) {
+    const blogPost = button.closest('.blog-post');
+    const excerpt = blogPost.querySelector('.blog-excerpt');
+    const fullContent = blogPost.querySelector('.blog-full-content');
+    const readMore = blogPost.querySelector('.read-more');
+    const readLess = blogPost.querySelector('.read-less');
+
+    excerpt.style.display = 'none';
+    fullContent.style.display = 'block';
+    readMore.style.display = 'none';
+    readLess.style.display = 'inline-flex';
+
+    // Smooth scroll to expanded content
+    blogPost.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  collapseBlogPost(button) {
+    const blogPost = button.closest('.blog-post');
+    const excerpt = blogPost.querySelector('.blog-excerpt');
+    const fullContent = blogPost.querySelector('.blog-full-content');
+    const readMore = blogPost.querySelector('.read-more');
+    const readLess = blogPost.querySelector('.read-less');
+
+    excerpt.style.display = 'block';
+    fullContent.style.display = 'none';
+    readMore.style.display = 'inline-flex';
+    readLess.style.display = 'none';
+
+    // Smooth scroll to collapsed content
+    blogPost.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  shareBlogPost(button) {
+    const blogPost = button.closest('.blog-post');
+    const title = blogPost.querySelector('.blog-title').textContent;
+    const url = window.location.href;
+
+    if (button.title.includes('Twitter')) {
+      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+      window.open(twitterUrl, '_blank');
+    } else if (button.title.includes('LinkedIn')) {
+      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+      window.open(linkedinUrl, '_blank');
+    } else if (button.title.includes('Copy')) {
+      navigator.clipboard.writeText(url).then(() => {
+        this.showToast('Link copied to clipboard!');
+      });
+    }
+  }
+
+  loadMoreBlogPosts() {
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    if (!loadMoreBtn) return;
+
+    loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+    
+    // Simulate loading delay
+    setTimeout(() => {
+      const remainingPosts = this.allPosts.slice(this.currentPosts.length, this.currentPosts.length + 3);
+      
+      if (remainingPosts.length > 0) {
+        this.currentPosts = [...this.currentPosts, ...remainingPosts];
+        this.renderBlogPosts(this.currentPosts);
+        
+        if (this.currentPosts.length >= this.allPosts.length) {
+          loadMoreBtn.style.display = 'none';
+        } else {
+          loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
+        }
+      }
+    }, 1000);
+  }
+
+  // Contact form functionality
+  handleContactSubmission(form) {
+    const formData = new FormData(form);
+    const statusDiv = document.getElementById('form-status');
+    const submitBtn = form.querySelector('.submit-btn');
+
+    // Show loading state
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+
+    // Validate form
+    if (!this.validateForm(form)) {
+      this.showFormStatus('Please correct the errors below.', 'error');
+      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      submitBtn.disabled = false;
       return;
     }
-    
+
     // Simulate form submission
-    formStatus.textContent = 'Sending message...';
-    formStatus.className = 'form-status';
-    
-    // In a real application, you would send the data to a server here
     setTimeout(() => {
-      contactForm.reset();
-      formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
-      formStatus.className = 'form-status success';
-    }, 1500);
-  });
+      // In a real application, you would send the data to a server
+      console.log('Form data:', Object.fromEntries(formData));
+      
+      this.showFormStatus(
+        'Thank you for your message! I\'ll get back to you within 24 hours.',
+        'success'
+      );
+      
+      form.reset();
+      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      submitBtn.disabled = false;
+    }, 2000);
+  }
+
+  validateForm(form) {
+    let isValid = true;
+    const requiredFields = form.querySelectorAll('[required]');
+
+    requiredFields.forEach(field => {
+      if (!this.validateField(field)) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  }
+
+  validateField(field) {
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+
+    // Remove existing error styling
+    field.classList.remove('error');
+    const existingError = field.parentNode.querySelector('.field-error');
+    if (existingError) {
+      existingError.remove();
+    }
+
+    // Required field validation
+    if (field.hasAttribute('required') && !value) {
+      isValid = false;
+      errorMessage = 'This field is required.';
+    }
+
+    // Email validation
+    if (field.type === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        isValid = false;
+        errorMessage = 'Please enter a valid email address.';
+      }
+    }
+
+    // Phone validation
+    if (field.type === 'tel' && value) {
+      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+      if (!phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
+        isValid = false;
+        errorMessage = 'Please enter a valid phone number.';
+      }
+    }
+
+    // Show error if validation failed
+    if (!isValid) {
+      field.classList.add('error');
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'field-error';
+      errorDiv.textContent = errorMessage;
+      errorDiv.style.color = 'var(--error-color, #e74c3c)';
+      errorDiv.style.fontSize = '0.85rem';
+      errorDiv.style.marginTop = '0.25rem';
+      field.parentNode.appendChild(errorDiv);
+    }
+
+    return isValid;
+  }
+
+  showFormStatus(message, type) {
+    const statusDiv = document.getElementById('form-status');
+    if (!statusDiv) return;
+
+    statusDiv.textContent = message;
+    statusDiv.className = `form-status ${type}`;
+    statusDiv.style.display = 'block';
+
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+      statusDiv.style.display = 'none';
+    }, 5000);
+  }
+
+  // Modal functionality
+  openModal(modalId) {
+    const modal = document.querySelector(modalId);
+    if (modal) {
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      
+      // Focus trap for accessibility
+      const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (focusableElements.length > 0) {
+        focusableElements[0].focus();
+      }
+    }
+  }
+
+  closeModal() {
+    const openModal = document.querySelector('.modal.show');
+    if (openModal) {
+      openModal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Utility functions
+  formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
+
+  showToast(message, duration = 3000) {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 12px var(--shadow-medium);
+      z-index: var(--z-tooltip);
+      animation: slideInRight 0.3s ease;
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.animation = 'slideOutRight 0.3s ease forwards';
+      setTimeout(() => {
+        document.body.removeChild(toast);
+      }, 300);
+    }, duration);
+  }
+
+  updateActiveNavigation() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  initializeSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-fill');
+    skillBars.forEach(bar => {
+      bar.style.width = '0%';
+    });
+  }
+
+  animateSkillBar(skillItem) {
+    const skillFill = skillItem.querySelector('.skill-fill');
+    if (skillFill) {
+      const targetWidth = skillFill.style.width;
+      skillFill.style.width = '0%';
+      
+      setTimeout(() => {
+        skillFill.style.width = targetWidth;
+      }, 200);
+    }
+  }
+
+  animateCounter(element) {
+    const target = parseInt(element.textContent);
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+
+    const counter = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        element.textContent = target + (element.textContent.includes('+') ? '+' : '');
+        clearInterval(counter);
+      } else {
+        element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
+      }
+    }, 16);
+  }
+
+  handleScroll() {
+    const header = document.querySelector('.main-header');
+    if (header) {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+  }
+
+  handleResize() {
+    // Handle responsive behavior
+    const mobileBreakpoint = 768;
+    if (window.innerWidth <= mobileBreakpoint) {
+      this.handleMobileResize();
+    } else {
+      this.handleDesktopResize();
+    }
+  }
+
+  handleMobileResize() {
+    // Mobile-specific adjustments
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+  }
+
+  handleDesktopResize() {
+    // Desktop-specific adjustments
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) {
+      navMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+  }
 }
 
-// Fix for React code examples in blog posts to prevent console errors
-function fixReactCodeExamples() {
-  // This function prevents JavaScript errors from React code examples in blog posts
-  // by finding and fixing any variable references that might be executed
+// Initialize portfolio when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  window.cyberPortfolio = new CyberPortfolio();
+});
+
+// Add some additional CSS for animations and effects
+const additionalStyles = `
+  .field-error {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+  }
   
-  // Define a dummy 'useState' function to prevent React-related errors
-  window.useState = function(initialValue) {
-    return [initialValue, function() {}];
-  };
+  .form-group input.error,
+  .form-group textarea.error,
+  .form-group select.error {
+    border-color: #e74c3c;
+  }
   
-  // Define a dummy 'useContext' function
-  window.useContext = function() {
-    return null;
-  };
+  .main-header.scrolled {
+    background: rgba(var(--surface-rgb), 0.95);
+    backdrop-filter: blur(20px);
+  }
   
-  // Define a dummy 'useReducer' function
-  window.useReducer = function(reducer, initialState) {
-    return [initialState, function() {}];
-  };
-}
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideOutRight {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+  
+  .nav-menu.active {
+    display: flex;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    flex-direction: column;
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-medium);
+    z-index: var(--z-dropdown);
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  
+  body.menu-open {
+    overflow: hidden;
+  }
+`;
+
+// Inject additional styles
+const styleSheet = document.createElement('style');
+styleSheet.textContent = additionalStyles;
+document.head.appendChild(styleSheet);

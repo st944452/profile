@@ -3,146 +3,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Rohit Kumar - Developer Portfolio" />
+  <meta name="description" content="Contact Rohit Kumar - Cybersecurity Consultant and Researcher" />
+  <meta name="keywords" content="contact cybersecurity expert, security consultant, penetration testing services" />
   <title>Contact | Rohit Kumar</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-    <h1>Rohit Kumar</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html" class="active">Contact</a>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>Rohit Kumar</h1>
+        <span class="brand-subtitle">Cybersecurity Analyst</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
-    <button id="theme-toggle" aria-label="Toggle dark/light theme">
-      <i class="fas fa-moon"></i>
-    </button>
   </header>
 
   <main>
-    <section id="contact" class="page-section">
-      <h2>Contact Me</h2>
-      <div class="contact-container">
-        <div class="contact-info-panel">
-          <div class="contact-method">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <h3>Email</h3>
-              <p><a href="mailto:st944452@gmail.com">st944452@gmail.com</a></p>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">Get In Touch</h1>
+        <p class="page-subtitle">Let's discuss cybersecurity challenges and opportunities</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-layout">
+          <div class="contact-info">
+            <h2>Let's Connect</h2>
+            <p class="contact-intro">
+              I'm always interested in discussing cybersecurity projects, collaborations, 
+              and opportunities to strengthen digital security. Whether you need consultation, 
+              security assessment, or want to explore innovative security solutions, I'm here to help.
+            </p>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Email</h3>
+                  <a href="mailto:st944452@gmail.com">st944452@gmail.com</a>
+                  <p>Best for detailed discussions and project inquiries</p>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Phone</h3>
+                  <a href="tel:+919634173539">+91 9634173539</a>
+                  <p>Available for urgent security consultations</p>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Location</h3>
+                  <span>Uttar Pradesh, India</span>
+                  <p>Available for remote and on-site consultations</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-contact">
+              <h3>Connect on Social Platforms</h3>
+              <div class="social-grid">
+                <a href="https://github.com/st944452" target="_blank" class="social-link">
+                  <i class="fab fa-github"></i>
+                  <div class="social-info">
+                    <span class="social-name">GitHub</span>
+                    <span class="social-desc">View my open-source projects</span>
+                  </div>
+                </a>
+                <a href="https://www.linkedin.com/in/rohit-kumar-777b30165/" target="_blank" class="social-link">
+                  <i class="fab fa-linkedin"></i>
+                  <div class="social-info">
+                    <span class="social-name">LinkedIn</span>
+                    <span class="social-desc">Professional networking</span>
+                  </div>
+                </a>
+                <a href="#" target="_blank" class="social-link">
+                  <i class="fab fa-twitter"></i>
+                  <div class="social-info">
+                    <span class="social-name">Twitter</span>
+                    <span class="social-desc">Latest security insights</span>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
-          
-          <div class="contact-method">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h3>Location</h3>
-              <p>Uttar Pradesh, India</p>
-            </div>
+
+          <div class="contact-form-container">
+            <form id="contact-form" class="contact-form">
+              <h2>Send a Message</h2>
+              <p>Have a specific question or project in mind? Let's discuss it!</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="company">Company/Organization</label>
+                <input type="text" id="company" name="company">
+              </div>
+
+              <div class="form-group">
+                <label for="projectType">Project Type</label>
+                <select id="projectType" name="projectType">
+                  <option value="">Select project type</option>
+                  <option value="penetration-testing">Penetration Testing</option>
+                  <option value="vulnerability-assessment">Vulnerability Assessment</option>
+                  <option value="security-audit">Security Audit</option>
+                  <option value="tool-development">Security Tool Development</option>
+                  <option value="consultation">General Consultation</option>
+                  <option value="collaboration">Research Collaboration</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget">
+                  <option value="">Select budget range</option>
+                  <option value="under-1000">Under $1,000</option>
+                  <option value="1000-5000">$1,000 - $5,000</option>
+                  <option value="5000-10000">$5,000 - $10,000</option>
+                  <option value="10000-plus">$10,000+</option>
+                  <option value="discuss">Prefer to discuss</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="timeline">Project Timeline</label>
+                <select id="timeline" name="timeline">
+                  <option value="">Select timeline</option>
+                  <option value="asap">ASAP (Within 1 week)</option>
+                  <option value="1-month">Within 1 month</option>
+                  <option value="2-3-months">2-3 months</option>
+                  <option value="flexible">Flexible timeline</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="6" required placeholder="Please describe your project, security challenges, or how I can help you..."></textarea>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="privacy" name="privacy" required>
+                  <span class="checkmark"></span>
+                  I agree to the privacy policy and understand that my information will be kept confidential *
+                </label>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="newsletter" name="newsletter">
+                  <span class="checkmark"></span>
+                  Subscribe to security insights and updates
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+
+            <div id="form-status" class="form-status"></div>
           </div>
-          
-          <div class="contact-method">
-            <i class="fas fa-phone"></i>
-            <div>
-              <h3>Phone</h3>
-              <p><a href="tel:+911234567890">+91 9634173539</a></p>
-            </div>
-          </div>
-          
-          <div class="social-contact">
-            <h3>Connect on Social Media</h3>
-            <div class="social-icons">
-              <a href="https://github.com/st944452" target="_blank" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://linkedin.com/in/rohitkumar" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="https://twitter.com/rohitkumar" target="_blank" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://instagram.com/rohitkumar.dev" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="contact-form-panel">
-          <h3>Send Me a Message</h3>
-          <form id="contact-form">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-submit">Send Message</button>
-          </form>
-          
-          <div id="form-status" class="form-status"></div>
         </div>
       </div>
-      
-      <!-- <div class="map-container">
-        <h3>Find Me Here</h3>
-        <div class="map">
-           Map placeholder
-          <img src="" alt="Map location" class="map-image">
+    </section>
+
+    <section class="section bg-alternate">
+      <div class="container">
+        <div class="availability-section">
+          <div class="availability-content">
+            <h2>Current Availability</h2>
+            <div class="availability-status">
+              <div class="status-indicator available"></div>
+              <span>Available for new projects</span>
+            </div>
+            <p>
+              I'm currently accepting new cybersecurity projects and consultations. 
+              My areas of expertise include penetration testing, vulnerability assessments, 
+              security auditing, and custom security tool development.
+            </p>
+            
+            <div class="response-time">
+              <h3>Response Time</h3>
+              <div class="response-grid">
+                <div class="response-item">
+                  <i class="fas fa-envelope"></i>
+                  <span>Email: Within 24 hours</span>
+                </div>
+                <div class="response-item">
+                  <i class="fas fa-phone"></i>
+                  <span>Phone: Same day for urgent matters</span>
+                </div>
+                <div class="response-item">
+                  <i class="fas fa-calendar"></i>
+                  <span>Consultation: Within 48 hours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="services-overview">
+            <h3>Services I Offer</h3>
+            <div class="services-grid">
+              <div class="service-item">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Penetration Testing</h4>
+                <p>Comprehensive security assessments to identify vulnerabilities</p>
+              </div>
+              <div class="service-item">
+                <i class="fas fa-search"></i>
+                <h4>Vulnerability Assessment</h4>
+                <p>Systematic evaluation of security weaknesses in systems</p>
+              </div>
+              <div class="service-item">
+                <i class="fas fa-clipboard-check"></i>
+                <h4>Security Auditing</h4>
+                <p>Detailed review of security policies and implementations</p>
+              </div>
+              <div class="service-item">
+                <i class="fas fa-tools"></i>
+                <h4>Tool Development</h4>
+                <p>Custom security tools and automation solutions</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-       -->
-      <div class="availability">
-        <h3>Availability</h3>
-        <p>I am currently available for freelance work and project collaborations. Feel free to reach out if you have a project in mind or just want to connect!</p>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Rohit Kumar</h3>
-        <p>Full Stack Developer & Open Source Enthusiast</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Connect</h3>
-        <div class="social-links">
-          <a href="https://github.com/rohitkumar" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/rohitkumar" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/rohitkumar" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Rohit Kumar</h3>
+          <p>Cybersecurity Analyst & Researcher</p>
+          <div class="social-links">
+            <a href="https://github.com/st944452" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/rohit-kumar-777b30165/" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li>Penetration Testing</li>
+            <li>Vulnerability Assessment</li>
+            <li>Security Auditing</li>
+            <li>Tool Development</li>
+          </ul>
         </div>
       </div>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2025 Rohit Kumar. All Rights Reserved.</p>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Rohit Kumar. All rights reserved.</p>
+        <p>Building secure digital futures.</p>
+      </div>
     </div>
   </footer>
 

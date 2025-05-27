@@ -1,0 +1,278 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8FAFC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E2E8F0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="heroBgDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E293B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cyberGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A6CF7;stop-opacity:0.6" />
+      <stop offset="50%" style="stop-color:#9333EA;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:0.6" />
+    </linearGradient>
+    <radialGradient id="glowEffect" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4A6CF7;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#4A6CF7;stop-opacity:0" />
+    </radialGradient>
+    <filter id="heroGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Cyber Grid Pattern -->
+    <pattern id="cyberGrid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#4A6CF7" stroke-width="0.5" opacity="0.2"/>
+      <circle cx="25" cy="25" r="1" fill="#4A6CF7" opacity="0.3"/>
+    </pattern>
+    <!-- Tech Circuit Pattern -->
+    <pattern id="circuitBoard" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M20,20 L80,20 M20,20 L20,80 M80,20 L80,80 M20,80 L80,80 M50,0 L50,20 M50,80 L50,100 M0,50 L20,50 M80,50 L100,50" 
+            stroke="#64748B" stroke-width="0.3" opacity="0.3"/>
+      <circle cx="20" cy="20" r="2" fill="#4A6CF7" opacity="0.4"/>
+      <circle cx="80" cy="20" r="2" fill="#10B981" opacity="0.4"/>
+      <circle cx="20" cy="80" r="2" fill="#9333EA" opacity="0.4"/>
+      <circle cx="80" cy="80" r="2" fill="#F59E0B" opacity="0.4"/>
+    </pattern>
+  </defs>
+  
+  <!-- Base Background -->
+  <rect width="1200" height="600" fill="url(#heroBg)"/>
+  
+  <!-- Cyber Grid Overlay -->
+  <rect width="1200" height="600" fill="url(#cyberGrid)" opacity="0.5">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0 0;50 50;0 0"
+      dur="20s"
+      repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Circuit Board Pattern -->
+  <rect width="1200" height="600" fill="url(#circuitBoard)" opacity="0.3"/>
+  
+  <!-- Main Glow Effects -->
+  <ellipse cx="300" cy="150" rx="200" ry="100" fill="url(#glowEffect)">
+    <animate attributeName="rx" values="200;250;200" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="100;130;100" dur="8s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <ellipse cx="900" cy="450" rx="180" ry="120" fill="url(#glowEffect)" opacity="0.6">
+    <animate attributeName="rx" values="180;220;180" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="120;150;120" dur="6s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Floating Geometric Shapes -->
+  <g opacity="0.4">
+    <!-- Hexagons -->
+    <g transform="translate(150, 100)">
+      <polygon points="20,0 35,10 35,30 20,40 5,30 5,10" 
+               fill="none" stroke="#4A6CF7" stroke-width="1.5">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0 20 20;360 20 20"
+          dur="15s"
+          repeatCount="indefinite"/>
+      </polygon>
+    </g>
+    
+    <g transform="translate(1000, 200)">
+      <polygon points="15,0 27,7 27,23 15,30 3,23 3,7" 
+               fill="none" stroke="#10B981" stroke-width="1.5">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0 15 15;-360 15 15"
+          dur="18s"
+          repeatCount="indefinite"/>
+      </polygon>
+    </g>
+    
+    <!-- Circles -->
+    <circle cx="800" cy="100" r="25" fill="none" stroke="#9333EA" stroke-width="2" opacity="0.6">
+      <animate attributeName="r" values="25;35;25" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="200" cy="500" r="20" fill="none" stroke="#F59E0B" stroke-width="2" opacity="0.7">
+      <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Triangles -->
+    <g transform="translate(600, 80)">
+      <polygon points="0,20 17,0 34,20" fill="none" stroke="#4A6CF7" stroke-width="1.5">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0 17 13;360 17 13"
+          dur="12s"
+          repeatCount="indefinite"/>
+      </polygon>
+    </g>
+    
+    <g transform="translate(400, 480)">
+      <polygon points="0,18 15,0 30,18" fill="none" stroke="#DC2626" stroke-width="1.5">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0 15 12;-360 15 12"
+          dur="10s"
+          repeatCount="indefinite"/>
+      </polygon>
+    </g>
+  </g>
+  
+  <!-- Security-themed Icons -->
+  <g opacity="0.3">
+    <!-- Shield Icons -->
+    <g transform="translate(100, 300)">
+      <path d="M0,-15 L10,-10 L10,10 L0,15 L-10,10 L-10,-10 Z" 
+            fill="none" stroke="#10B981" stroke-width="1.5">
+        <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+      </path>
+      <path d="M-5,-5 L0,0 L5,-8" 
+            stroke="#10B981" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </g>
+    
+    <g transform="translate(1050, 400)">
+      <path d="M0,-12 L8,-8 L8,8 L0,12 L-8,8 L-8,-8 Z" 
+            fill="none" stroke="#4A6CF7" stroke-width="1.5">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/>
+      </path>
+      <path d="M-4,-4 L0,0 L4,-6" 
+            stroke="#4A6CF7" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Lock Icons -->
+    <g transform="translate(50, 150)">
+      <rect x="-5" y="-2" width="10" height="6" rx="1" fill="none" stroke="#9333EA" stroke-width="1.5"/>
+      <path d="M-3,-6 C-3,-8 -1,-9 0,-9 C1,-9 3,-8 3,-6 L3,-2" 
+            stroke="#9333EA" stroke-width="1.5" fill="none">
+        <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.5s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <g transform="translate(1100, 120)">
+      <rect x="-4" y="-2" width="8" height="5" rx="1" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+      <path d="M-2,-5 C-2,-7 0,-8 2,-6 L2,-2" 
+            stroke="#F59E0B" stroke-width="1.5" fill="none">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <!-- Network Node Icons -->
+    <g transform="translate(300, 400)">
+      <circle cx="0" cy="0" r="3" fill="#DC2626" opacity="0.7"/>
+      <circle cx="-15" cy="-10" r="2" fill="#DC2626" opacity="0.5"/>
+      <circle cx="15" cy="-10" r="2" fill="#DC2626" opacity="0.5"/>
+      <circle cx="0" cy="15" r="2" fill="#DC2626" opacity="0.5"/>
+      <line x1="0" y1="0" x2="-15" y2="-10" stroke="#DC2626" stroke-width="1"/>
+      <line x1="0" y1="0" x2="15" y2="-10" stroke="#DC2626" stroke-width="1"/>
+      <line x1="0" y1="0" x2="0" y2="15" stroke="#DC2626" stroke-width="1"/>
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4.5s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Binary Data Streams -->
+    <g transform="translate(700, 300)" opacity="0.4">
+      <text font-family="monospace" font-size="12" fill="#4A6CF7">01101001</text>
+      <animate attributeName="transform" values="translate(700,300);translate(720,280);translate(700,300)" dur="6s" repeatCount="indefinite"/>
+    </g>
+    
+    <g transform="translate(500, 200)" opacity="0.3">
+      <text font-family="monospace" font-size="10" fill="#10B981">11010110</text>
+      <animate attributeName="transform" values="translate(500,200);translate(480,180);translate(500,200)" dur="8s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Particle System -->
+  <g opacity="0.6">
+    <!-- Particle 1 -->
+    <circle cx="200" cy="200" r="2" fill="#4A6CF7">
+      <animate attributeName="cx" values="200;400;200" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="200;180;200" dur="12s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Particle 2 -->
+    <circle cx="800" cy="400" r="1.5" fill="#10B981">
+      <animate attributeName="cx" values="800;600;800" dur="15s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="400;420;400" dur="15s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.1;0.6" dur="15s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Particle 3 -->
+    <circle cx="1000" cy="150" r="2.5" fill="#9333EA">
+      <animate attributeName="cx" values="1000;1100;1000" dur="10s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="150;170;150" dur="10s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.3;0.6" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Particle 4 -->
+    <circle cx="400" cy="500" r="1" fill="#F59E0B">
+      <animate attributeName="cx" values="400;300;400" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="500;480;500" dur="18s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="18s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Tech Lines/Connections -->
+  <g stroke="#64748B" stroke-width="1" fill="none" opacity="0.3">
+    <!-- Connecting Lines -->
+    <path d="M100,100 Q300,200 500,150">
+      <animate attributeName="stroke-dashoffset" values="0;20" dur="3s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M700,400 Q900,300 1100,350">
+      <animate attributeName="stroke-dashoffset" values="0;20" dur="4s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M200,500 Q600,300 1000,200">
+      <animate attributeName="stroke-dashoffset" values="0;20" dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Cyber Security Badge -->
+  <g transform="translate(600, 300)" opacity="0.1">
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#4A6CF7" stroke-width="2"/>
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#10B981" stroke-width="1"/>
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#9333EA" stroke-width="1"/>
+    
+    <!-- Central Security Icon -->
+    <path d="M0,-30 L20,-20 L20,20 L0,30 L-20,20 L-20,-20 Z" 
+          fill="none" stroke="#4A6CF7" stroke-width="2"/>
+    <path d="M-10,-10 L0,0 L10,-15" 
+          stroke="#4A6CF7" stroke-width="2" fill="none" stroke-linecap="round"/>
+    
+    <!-- Rotation Animation -->
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      values="0 600 300;360 600 300"
+      dur="30s"
+      repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Dynamic Wave Effect -->
+  <g opacity="0.2">
+    <path d="M0,300 Q300,250 600,300 T1200,300" 
+          fill="none" stroke="url(#cyberGradient)" stroke-width="3">
+      <animate attributeName="d" 
+               values="M0,300 Q300,250 600,300 T1200,300;M0,300 Q300,350 600,300 T1200,300;M0,300 Q300,250 600,300 T1200,300" 
+               dur="8s" 
+               repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M0,320 Q300,270 600,320 T1200,320" 
+          fill="none" stroke="url(#cyberGradient)" stroke-width="2">
+      <animate attributeName="d" 
+               values="M0,320 Q300,270 600,320 T1200,320;M0,320 Q300,370 600,320 T1200,320;M0,320 Q300,270 600,320 T1200,320" 
+               dur="6s" 
+               repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>
