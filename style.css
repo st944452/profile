@@ -1628,20 +1628,28 @@ a:hover {
 }
 
 .checkbox-label {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.5;
+  position: relative;
+  padding-left: 30px; /* space for custom checkbox */
 }
 
 .checkbox-label input[type="checkbox"] {
-  width: auto;
-  margin: 0;
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
 }
 
 .checkmark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 20px;
   height: 20px;
   border: 2px solid var(--border-color);
@@ -1650,8 +1658,6 @@ a:hover {
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
-  flex-shrink: 0;
-  margin-top: 2px;
 }
 
 .checkbox-label input[type="checkbox"]:checked + .checkmark {

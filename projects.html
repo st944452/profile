@@ -11,6 +11,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script>
+  function showToast() {
+    Toastify({
+      text: "🚧 Research in progress for this project!",
+      duration: 3000,
+      gravity: "bottom", // top or bottom
+      position: "right", // left, center or right
+      backgroundColor: "#ff6f61",
+      stopOnFocus: true,
+    }).showToast();
+  }
+</script>
 </head>
 
 <body>
@@ -149,7 +163,7 @@
               <img src="assets/project-hash.svg" alt="GPU Hash Cracking Tool" />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="#" target="_blank" class="project-link" aria-label="View source code">
+                  <a href="https://github.com/st944452/MD5_HASH_CRACKING" target="_blank" class="project-link" aria-label="View source code">
                     <i class="fab fa-github"></i>
                   </a>
                   <a href="#project-hash-modal" class="project-link modal-trigger" aria-label="View details">
@@ -207,7 +221,7 @@
               <img src="assets/network_security_monitor.png" alt="GPU Hash Cracking Tool" />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="#" target="_blank" class="project-link" aria-label="View source code">
+                  <a href="https://github.com/st944452/Intrusion-Detection-System" target="_blank" class="project-link" aria-label="View source code">
                     <i class="fab fa-github"></i>
                   </a>
                   <a href="#project-hash-modal" class="project-link modal-trigger" aria-label="View details">
@@ -259,7 +273,7 @@
               <img src="assets/key_logger_detection.png" alt="GPU Hash Cracking Tool" />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="#" target="_blank" class="project-link" aria-label="View source code">
+                  <a href="https://github.com/st944452/keylogger_detection_tool" target="_blank" class="project-link" aria-label="View source code">
                     <i class="fab fa-github"></i>
                   </a>
                   <a href="#project-hash-modal" class="project-link modal-trigger" aria-label="View details">
@@ -303,7 +317,7 @@
               <img src="assets/ML Malware Classifier Flowchart.png" alt="GPU Hash Cracking Tool" />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="#" target="_blank" class="project-link" aria-label="View source code">
+                  <a href="#" target="_blank" class="project-link" aria-label="View source code" onclick="showToast(); return false;">
                     <i class="fab fa-github"></i>
                   </a>
                   <a href="#project-hash-modal" class="project-link modal-trigger" aria-label="View details">
@@ -393,7 +407,7 @@
               <img src="assets/log_analysis.png" alt="GPU Hash Cracking Tool" />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="#" target="_blank" class="project-link" aria-label="View source code">
+                  <a href="https://github.com/st944452/Log_analysis_-_alerting_system" target="_blank" class="project-link" aria-label="View source code">
                     <i class="fab fa-github"></i>
                   </a>
                   <a href="#project-hash-modal" class="project-link modal-trigger" aria-label="View details">
